@@ -1,0 +1,285 @@
+﻿header {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #E4E5E7;
+}
+header.open-toolbar {
+    margin-top: 0;
+}
+header > .main {
+  height: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+header > .links {
+    height: 70px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+header > .search {
+  display: none;
+}
+header > hr {
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #E4E5E7;
+}
+header > .main:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+header > .links {
+  text-align: center;
+  position: relative;
+}
+header > .main > ul,
+header > .links ul {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+header > .main > ul li,
+header > .links ul li {
+  display: inline-block;
+}
+header > .main > ul li a {
+  text-decoration: none;
+  outline: none;
+  margin: 0;
+  line-height: 40px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-size: 12px;
+  height: 40px;
+  color: #000;
+  font-weight: bold;
+}
+header > .links ul li a {
+    text-decoration: none;
+  outline: none;
+  color: #000;
+  margin: 0;
+  line-height: 70px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-size: 12px;
+  height: 70px;
+  font-weight: bold;
+}
+header > .main > ul li a:hover,
+header > .links ul li a:hover {
+  -webkit-transition: color 0.20s linear;
+  -moz-transition: color 0.20s linear;
+  transition: color 0.20s linear;
+  will-change: color;
+  color: #fe4426!important;
+}
+header > .links ul li a.dropdown:after {
+  content: '\25ba';
+  margin-left: 5px;
+  font-size: 8px;
+  float: right;
+  display: inline-block;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+header > .links .logo {
+  height: 60px;
+  margin: 5px 0 5px 25px;
+  position: absolute;
+  left: 5px;
+}
+header > .links .logo > img {
+  max-height: 100%;
+  float: left;
+}
+header .mobile-menu {
+  display: none;
+}
+header > .main .account,
+header > .main .account li {
+  float: left;
+}
+header > .main .options,
+header > .main .options li {
+  float: right;
+}
+header a.cart span {
+  padding: 0 8px;
+}
+header a.icon {
+  padding-left: 35px!important;
+  position: relative;
+}
+header .toggle-menu {
+    display: none;
+}
+header a.icon:before {
+  content: ' ';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 5px;
+  top: -2px;
+  background-image: url(../../Images/ecommerce/Store-Icons.svg);
+  -webkit-filter: invert(100%) brightness(0);
+   filter: invert(100%) brightness(0);
+}
+header a.icon.icon-account:before {
+  background-position: 0 0;
+}
+header a.icon.icon-menu:before {
+  background-position: 0 -60px;
+}
+header a.icon.icon-cart:before {
+  background-position: 0 -20px;
+}
+header a.icon.icon-search:before {
+  background-position: 0 -80px;
+}
+header a.icon.icon-login:before {
+  background-position: 0 -160px;
+}
+header a.icon.icon-register:before {
+  background-position: 0 -140px;
+}
+
+body.tablet header,
+body.mobile header {
+    border-bottom: none;
+}
+body.tablet header .icon.toggle-menu,
+body.mobile header .icon.toggle-menu {
+    height: 45px;
+    width: 45px;
+    margin: 0;
+    float: left;
+    padding-left: 0!important;
+    display: block;
+}
+body.tablet header > .search,
+body.mobile header > .search {
+    display: none;
+}
+body.tablet header > .links > ul,
+body.mobile header > .links > ul {
+    display: none;
+}
+body.tablet header > .links .logo,
+body.mobile header > .links .logo {
+    height: 35px;
+    top: -46px;
+    left: 25px;
+}
+body.tablet header > .links ul li a,
+body.mobile header > .links ul li a {
+    height: 45px;
+    line-height: 45px;
+}
+body.tablet header > .main,
+body.mobile header > .main {
+    height: 45px;
+}
+body.tablet header a.icon:before,
+body.mobile header a.icon:before {
+    top: 13px;
+    left: 18px;
+}
+body.tablet header > .main .options,
+body.tablet header > .main .account,
+body.mobile header > .main .options,
+body.mobile header > .main .account {
+    display: none;
+}
+body.tablet header .mobile-menu,
+body.mobile header .mobile-menu {
+    display: block;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 250px;
+    left: -250px;
+    top:0;
+    bottom: 0;
+    border-right: 1px solid #E4E5E7;
+}
+body.tablet header .mobile-menu li,
+body.mobile header .mobile-menu li {
+    height: 45px;
+    float: none;
+    display: block;
+}
+body.tablet header .mobile-menu a,
+body.mobile header .mobile-menu a {
+    height: 45px;
+    border-bottom: 1px solid #E4E5E7;
+    padding: 0;
+    padding-left: 50px!important;
+    margin: 0;
+    display: block;
+    color: #000;
+    line-height: 45px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+body.tablet header .mobile-menu a.sub-menu,
+body.mobile header .mobile-menu a.sub-menu {
+    text-decoration: none;
+    color: #626667;
+    font-size: 11px;
+}
+body.tablet header .mobile-menu a:hover,
+body.mobile header .mobile-menu a:hover {
+    -webkit-transition: color 0.20s linear;
+    -moz-transition: color 0.20s linear;
+    transition: color 0.20s linear;
+    will-change: color;
+    color: #fe4426!important;
+}
+body.tablet header > .main > .mobile-menu > li a:before,
+body.mobile header > .main > .mobile-menu > li a:before {
+    top: 10px;
+    left: 13px;
+}
+body.tablet header a.cart span,
+body.mobile header a.cart span {
+    display: none;
+}
+body.tablet header > .links,
+body.mobile header > .links {
+    height: auto;
+}
+body.tablet header > .links > ul > li,
+body.mobile header > .links > ul > li {
+    text-align: left;
+    display: block;
+}
+body.tablet header > .links > ul li,
+body.mobile header > .links > ul li {
+    border-bottom: 1px solid #E4E5E7;
+}
+body.tablet header > .links > ul > li a,
+body.mobile header > .links > ul > li a {
+    display: block;
+}
+body.tablet header > .links ul li a.dropdown:after,
+body.mobile header > .links ul li a.dropdown:after {
+    content: " ";
+    background-image: url(../../Images/ecommerce/Store-Icons.svg);
+    background-size: 17px;
+    background-repeat: no-repeat;
+    background-position: 0 -85px;
+    height: 17px;
+    width: 17px;
+    float: right;
+    margin-top: 13px;
+
+    -ms-transform: none;
+    -webkit-transform: none;
+    transform: none;
+}
