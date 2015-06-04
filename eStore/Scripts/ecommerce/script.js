@@ -36,8 +36,8 @@ function addToCart() {
 }
 
 getProductDetails();
-function getProductDetails() {
-    var ProductId = document.getElementById("ProductId").value;
+function getProductDetails(pid) {
+    var ProductId = (typeof pid == "undefined") ? document.getElementById("ProductId").value : pid;
     
     var xmlhttp0;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -56,6 +56,11 @@ function getProductDetails() {
             if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
                 var product = JSON.parse(xmlhttp0.responseText);
                 
+                if (typeof pid != "undefined") {
+                    PopulateShoppingCartView(product);
+                    return;
+                }
+
                 ProductGlobal.ProductId = product.ProductId;
                 ProductGlobal.Name = product.Name;
                 ProductGlobal.Price = product.Price;
@@ -87,10 +92,15 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
     document.getElementById("CartCountSidebarBtn").innerHTML = ShoppingCartViewModel.CartItems.length + "<span></span>";
     document.getElementById("ShoppingCartCountSidebar").innerHTML = "(" + ShoppingCartViewModel.CartItems.length + " ITEMS)";
 
-    for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
-        
-        Product = getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId);
+    
 
+    for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
+        getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId);
+    }
+}
+
+function PopulateShoppingCartView(Product) {
+    if (typeof Product != "undefined") {
         var DivItem = document.createElement("DIV");
         DivItem.className = "item";
 
@@ -103,7 +113,7 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
 
         var DivProductName = document.createElement("DIV");
         DivProductName.className = "product-name";
-        DivProductName.innerHTML = ShoppingCartViewModel.CartItems[i].Name;
+        DivProductName.innerHTML = Product.Name;
 
         var Table = document.createElement("TABLE");
         var Tbody = document.createElement("TBODY");
@@ -113,7 +123,7 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
         TdColorLabel.innerHTML = "Color:";
 
         var TdColorName = document.createElement("TD");
-        TdColorName.innerHTML = ShoppingCartViewModel.CartItems[i].Color;
+        TdColorName.innerHTML = Product.Color;
 
         TrColor.appendChild(TdColorLabel);
         TrColor.appendChild(TdColorName);
@@ -152,7 +162,7 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
         TdPriceLabel.innerHTML = "Price:";
 
         var TdPriceAmount = document.createElement("TD");
-        TdPriceAmount.innerHTML = ShoppingCartViewModel.CartItems[i].Price;
+        TdPriceAmount.innerHTML = Product.Price;
 
         TrPrice.appendChild(TdPriceLabel);
         TrPrice.appendChild(TdPriceAmount);
@@ -168,7 +178,7 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
         DivRemoveItem = document.createElement("DIV");
         DivRemoveItem.innerHTML = "remove";
         DivRemoveItem.className = "remove-item";
-        var ProductId = ShoppingCartViewModel.CartItems[i].ProductId;
+        var ProductId = Product.ProductId;
         DivRemoveItem.onclick = (function (ProductId) {
             return function () {
                 //showParam(opt);
@@ -181,60 +191,3 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
         document.getElementById("cart-items").appendChild(DivItem);
     }
 }
-
-
-
-/*
-<div class="item">
-                    <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
-                    <div class="item-info">
-                        <div class="product-name">product name</div>
-                        <table>
-                            <tbody><tr>
-                                <td>Color:</td>
-                                <td>Blue</td>
-                            </tr>
-                            <tr>
-                                <td>Size:</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>Qty:</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Price:</td>
-                                <td>$10.00</td>
-                            </tr>
-                        </tbody></table>
-                    </div>
-                    <div class="remove-item">remove</div>
-                </div>
-                <div class="item">
-                    <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
-                    <div class="item-info">
-                        <div class="product-name">product name</div>
-                        <table>
-                            <tbody><tr>
-                                <td>Color:</td>
-                                <td>Blue</td>
-                            </tr>
-                            <tr>
-                                <td>Size:</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>Qty:</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Price:</td>
-                                <td>$10.00</td>
-                            </tr>
-                        </tbody></table>
-                    </div>
-                    <div class="remove-item">remove</div>
-                </div>
-            </div>
-
-*/
