@@ -5,12 +5,7 @@
 
 <h2>Details</h2>
 
-
-
-
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Ecommerce</title>
@@ -276,7 +271,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="space">
-                                        <button class="addToCart">Add To Cart</button>
+                                        <button class="addToCart" id="addToCart" onclick="addToCart()">Add To Cart</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -545,6 +540,9 @@
     };
     </script>
 
+    @Html.Hidden("ProductId", (int)ViewBag.Id);
+
+    <script src="~/Scripts/ecommerce/script.js"></script>
 </body>
 </html>
 
