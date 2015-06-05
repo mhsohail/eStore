@@ -25,8 +25,10 @@ namespace eStore.Controllers
         }
 
         // POST: api/OrderApi
-        public void Post(Order order)
+        public HttpResponseMessage Post(Order order)
         {
+            HttpResponseMessage response;
+
             using(var transaction = db.Database.BeginTransaction())
             {
                 try
@@ -35,12 +37,16 @@ namespace eStore.Controllers
                     db.Orders.Add(order);
                     //db.SaveChanges();
                     //transaction.Commit();
+                    response = Request.CreateResponse<string>(HttpStatusCode.OK, "Order placed");
                 }
                 catch(Exception exc)
                 {
                     transaction.Rollback();
+                    response = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc.Message);
                 }
             }
+
+            return response;
         }
 
         // PUT: api/OrderApi/5

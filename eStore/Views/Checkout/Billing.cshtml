@@ -265,15 +265,15 @@
                             <div class="form">
                                 <div class="two-col">
                                     <div class="form-control">
-                                        <input type="text" class="field" placeholder="Card Number" id="credit-card-number" />
+                                        <input type="text" class="field" placeholder="Card Number" id="credit-card-number" value="4111111111111111" onchange="ValidateCreditCardNumber(this.value)" />
                                     </div>
                                     <div>
                                         <div class="two-col">
                                             <div class="form-control">
-                                                <input type="text" class="field" placeholder="MM | YY" id="credit-card-expdate" />
+                                                <input type="text" class="field" placeholder="MM | YY" id="credit-card-expdate" value="01|16" onchange="ValidateCCExpiry(this.value)" />
                                             </div>
                                             <div class="form-control">
-                                                <input type="text" class="field" placeholder="CVC" id="credit-card-cvc" />
+                                                <input type="text" class="field" placeholder="CVC" id="credit-card-cvc" value="123" />
                                             </div>
                                         </div>
                                     </div>
