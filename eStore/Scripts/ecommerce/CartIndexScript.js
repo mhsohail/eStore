@@ -126,6 +126,5 @@ function PopulateShoppingCartView(Product, CartItem) {
 }
 
 function doCheckOut() {
-    alert("heeeeeeeeeee");
     window.location = '/checkoutbilling';
 }

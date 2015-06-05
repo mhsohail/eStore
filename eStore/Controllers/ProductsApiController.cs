@@ -27,10 +27,19 @@ namespace eStore.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
         {
-            Product product = db.Products.Find(id);
-            if (product == null)
+            Product product = null;
+
+            try
             {
-                return NotFound();
+                product = db.Products.Find(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+            }
+            catch(Exception exc)
+            {
+                // exc
             }
 
             return Ok(product);
