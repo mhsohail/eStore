@@ -125,3 +125,7 @@ function PopulateShoppingCartView(Product, CartItem) {
     document.getElementById("cart-items-tbody").appendChild(Tr);
 }
 
+function doCheckOut() {
+    alert("heeeeeeeeeee");
+    window.location = '/checkoutbilling';
+}
