@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,8 @@ namespace eStore.Controllers
 {
     public class OrderApiController : ApiController
     {
+        EStoreContext db = new EStoreContext();
+
         // GET: api/OrderApi
         public IEnumerable<string> Get()
         {
@@ -22,8 +25,22 @@ namespace eStore.Controllers
         }
 
         // POST: api/OrderApi
-        public void Post([FromBody]string value)
+        public void Post(Order order)
         {
+            using(var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    order.OrderDate = DateTime.Now;
+                    db.Orders.Add(order);
+                    //db.SaveChanges();
+                    //transaction.Commit();
+                }
+                catch(Exception exc)
+                {
+                    transaction.Rollback();
+                }
+            }
         }
 
         // PUT: api/OrderApi/5

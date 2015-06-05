@@ -23,6 +23,7 @@ namespace eStore.Models
 
         public System.Data.Entity.DbSet<eStore.Models.Product> Products { get; set; }
         public System.Data.Entity.DbSet<eStore.Models.Cart> Carts { get; set; }
+        public System.Data.Entity.DbSet<eStore.Models.Order> Orders { get; set; }
         public System.Data.Entity.DbSet<eStore.Models.OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
