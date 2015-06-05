@@ -3,6 +3,11 @@
 var ShoppingCartViewModel = JSON.parse(localStorage.getItem("ShoppingCartViewModel"));
 
 document.getElementById("checkout-sub-title").innerHTML = ShoppingCartViewModel.CartItems.length + "(items)";
+document.getElementById("item-subtotal").innerHTML = "item subtotal (" + ShoppingCartViewModel.CartItems.length + ")";
+document.getElementById("CartItemsCountTopBar").innerHTML = ShoppingCartViewModel.CartItems.length + " items";
+document.getElementById("item-subtotal-amount").innerHTML = "$" + ShoppingCartViewModel.CartTotal;
+document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + 20);
+document.getElementById("CartTotalTopBar").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + 20);
 
 function getProductDetails(pid, CartItem) {
     var ProductId = (typeof pid == "undefined") ? document.getElementById("ProductId").value : pid;
@@ -81,7 +86,7 @@ function PopulateShoppingCartView(Product, CartItem) {
     // TR size
     var TrSize = document.createElement("TR");
     var TdSizeLabel = document.createElement("TD");
-    TdSizeLabel.innerHTML = "Color:";
+    TdSizeLabel.innerHTML = "Size:";
     TrSize.appendChild(TdSizeLabel);
 
     var TdSizeName = document.createElement("TD");
@@ -111,36 +116,12 @@ function PopulateShoppingCartView(Product, CartItem) {
     Tr.appendChild(TdPrice);
     /////
 
-    /*
+    // TD Total
+    var TdTotal = document.createElement("TD");
+    TdTotal.innerHTML = "$" + (CartItem.Count * Product.Price).toFixed(2);
+    Tr.appendChild(TdTotal);
+    /////
     
-    <td>$150.00</td>
-    <td>$150.00</td>
-    */
-
     document.getElementById("cart-items-tbody").appendChild(Tr);
-
 }
 
-/*
-<tr>
-                                        <td>
-                                            <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
-                                            <div class="item-detail">
-                                                <h4 class="name">product name</h4>
-                                                <table>
-                                                    <tr>
-                                                        <td>Color:</td>
-                                                        <td>Blue</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Size:</td>
-                                                        <td>5<a href="#" class="edit-col">edit</a></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                        <td>1</td>
-                                        <td>$150.00</td>
-                                        <td>$150.00</td>
-                                    </tr>
-*/

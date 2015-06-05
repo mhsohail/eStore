@@ -5,10 +5,6 @@
 
 <h2>Index</h2>
 
-
-
-
-
 <!DOCTYPE html>
 
 <html>
@@ -112,7 +108,7 @@
         <header>
             <div class="main">
                 <ul class="options">
-                    <li><a href="/cart" class="icon icon-cart cart"><span>02 items</span> <span>$290.00</span></a></li>
+                    <li><a href="/cart" class="icon icon-cart cart"><span id="CartItemsCountTopBar">02 items</span> <span id="CartTotalTopBar">$290.00</span></a></li>
                     <li><a href="#" class="icon icon-search">search</a></li>
                 </ul>
                 <ul class="account">
@@ -208,8 +204,8 @@
                                     </div>
                                 </div>
                                 <div class="detail">
-                                    <div class="label">item subtotal (2)</div>
-                                    <div class="value">$270.00</div>
+                                    <div class="label" id="item-subtotal">item subtotal (2)</div>
+                                    <div class="value" id="item-subtotal-amount">$270.00</div>
                                 </div>
                                 <div class="detail">
                                     <div class="label">estimated shipping</div>
@@ -225,7 +221,7 @@
                                 </div>
                                 <div class="detail">
                                     <div class="label">total</div>
-                                    <div class="value">$290.00</div>
+                                    <div class="value" id="item-total-amount">$290.00</div>
                                 </div>
                                 <div class="detail">
                                     <button class="checkout btn-danger" onclick="javascript:window.location ='/checkoutbilling'">check out</button>
@@ -245,48 +241,6 @@
                                     </tr>
                                 </thead>
                                 <tbody id="cart-items-tbody">
-                                    <tr>
-                                        <td>
-                                            <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
-                                            <div class="item-detail">
-                                                <h4 class="name">product name</h4>
-                                                <table>
-                                                    <tr>
-                                                        <td>Color:</td>
-                                                        <td>Blue</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Size:</td>
-                                                        <td>5<a href="#" class="edit-col">edit</a></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                        <td>1</td>
-                                        <td>$150.00</td>
-                                        <td>$150.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
-                                            <div class="item-detail">
-                                                <h4 class="name">product name</h4>
-                                                <table>
-                                                    <tr>
-                                                        <td>Color:</td>
-                                                        <td>Blue</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Size:</td>
-                                                        <td>5<a href="#" class="edit-col">edit</a></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                        <td>1</td>
-                                        <td>$150.00</td>
-                                        <td>$150.00</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

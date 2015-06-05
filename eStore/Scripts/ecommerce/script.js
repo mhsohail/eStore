@@ -30,9 +30,12 @@ function addToCart() {
             if (xmlhttp1.responseText) { // the onreadystatechange executes multiple times, so this check is required
                 var scvm = JSON.parse(xmlhttp1.responseText);
                 
-                //if (scvm.NewProduct != null) {
-                    UpdateShoppingCart(xmlhttp1.responseText);
-                //}
+                if (scvm.NewProduct == null) {
+                    UpdateShoppingCart(xmlhttp1.responseText, true);
+                    cartRefreshed = false;
+                } else {
+                    UpdateShoppingCart(xmlhttp1.responseText, false);
+                }
             }
         }
     }
@@ -40,7 +43,7 @@ function addToCart() {
 }
 
 getProductDetails();
-function getProductDetails(pid) {
+function getProductDetails(pid, refreshCart, cartItem) {
     var ProductId = (typeof pid == "undefined") ? document.getElementById("ProductId").value : pid;
     
     var xmlhttp0;
@@ -61,7 +64,7 @@ function getProductDetails(pid) {
                 var product = JSON.parse(xmlhttp0.responseText);
                 
                 if (typeof pid != "undefined") {
-                    PopulateShoppingCartView(product);
+                    PopulateShoppingCartView(product, refreshCart, cartItem);
                     return;
                 }
 
@@ -88,7 +91,7 @@ function getShoppingCart() {
     UpdateShoppingCart(localStorage.getItem("ShoppingCartViewModel"));
 }
 
-function UpdateShoppingCart(ShoppingCartViewModelJson) {
+function UpdateShoppingCart(ShoppingCartViewModelJson, refreshCart) {
 
     localStorage.setItem("ShoppingCartViewModel", ShoppingCartViewModelJson);
     var ShoppingCartViewModel = JSON.parse(ShoppingCartViewModelJson);
@@ -98,12 +101,20 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
     document.getElementById("cart-total-sidebar").innerHTML = "subtotal: $" + ShoppingCartViewModel.CartTotal;
 
     for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
-        getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId);
+        getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId, refreshCart, ShoppingCartViewModel.CartItems[i]);
     }
 }
 
-function PopulateShoppingCartView(Product) {
+var cartRefreshed = false;
+function PopulateShoppingCartView(Product, refreshCart, cartItem) {
     if (typeof Product != "undefined") {
+        
+        if (refreshCart && !cartRefreshed) {
+            alert(refreshCart);
+            document.getElementById("cart-items").innerHTML = "";
+            cartRefreshed = true;
+        }
+
         var DivItem = document.createElement("DIV");
         DivItem.className = "item";
 
@@ -152,7 +163,7 @@ function PopulateShoppingCartView(Product) {
         TdQtyLabel.innerHTML = "Qty:";
 
         var TdQtyAmount = document.createElement("TD");
-        TdQtyAmount.innerHTML = "2.34";
+        TdQtyAmount.innerHTML = cartItem.Count;
 
         TrQty.appendChild(TdQtyLabel);
         TrQty.appendChild(TdQtyAmount);
@@ -191,6 +202,7 @@ function PopulateShoppingCartView(Product) {
         DivItem.appendChild(DivRemoveItem);
 
         document.getElementById("cart-items").appendChild(DivItem);
+        
     }
 }
 
@@ -239,3 +251,4 @@ function findParentNode(parentClassName, childObj) {
     // now you have the object you are looking for - do something with it
     testObj.remove();
 }
+

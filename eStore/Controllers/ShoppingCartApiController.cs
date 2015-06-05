@@ -72,6 +72,7 @@ namespace eStore.Controllers
             {
                 // remove new product, so it cannot be appended to shopping cart DOM in javascript code
                 CartItem.Count++;
+                scvm.CartTotal = scvm.CartTotal + scvm.NewProduct.Price;
                 scvm.NewProduct = null;
             }
 
