@@ -91,9 +91,8 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
 
     document.getElementById("CartCountSidebarBtn").innerHTML = ShoppingCartViewModel.CartItems.length + "<span></span>";
     document.getElementById("ShoppingCartCountSidebar").innerHTML = "(" + ShoppingCartViewModel.CartItems.length + " ITEMS)";
-
+    document.getElementById("cart-total-sidebar").innerHTML = "subtotal: $" + ShoppingCartViewModel.CartTotal;
     
-
     for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
         getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId);
     }
@@ -181,8 +180,7 @@ function PopulateShoppingCartView(Product) {
         var ProductId = Product.ProductId;
         DivRemoveItem.onclick = (function (ProductId) {
             return function () {
-                //showParam(opt);
-                alert(ProductId);
+                deleteFromCart(ProductId, this);
             };
         })(ProductId);
 
@@ -190,4 +188,49 @@ function PopulateShoppingCartView(Product) {
 
         document.getElementById("cart-items").appendChild(DivItem);
     }
+}
+
+function deleteFromCart(ProductId, _this) {
+    
+    var ShoppingCartViewModelJson = localStorage.getItem("ShoppingCartViewModel");
+
+    var xmlhttp2;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp2 = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp2.open("DELETE", "http://localhost:4785/api/ShoppingCartApi/" + ProductId, true);
+    xmlhttp2.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp2.send(ShoppingCartViewModelJson);
+    
+    xmlhttp2.onreadystatechange = function () {
+        if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
+            if (xmlhttp2.responseText) { // the onreadystatechange executes multiple times, so this check is required
+                
+                localStorage.setItem("ShoppingCartViewModel", xmlhttp2.responseText);
+                
+                var ShoppingCartViewModel = JSON.parse(localStorage.getItem("ShoppingCartViewModel"));
+                
+                document.getElementById("cart-total-sidebar").innerHTML = "subtotal: $" + ShoppingCartViewModel.CartTotal;
+
+                findParentNode("item", _this);
+            }
+        }
+    }
+    
+}
+
+function findParentNode(parentClassName, childObj) {
+    var testObj = childObj.parentNode;
+    var count = 1;
+    while (testObj.className != parentClassName) {
+        alert('My name is ' + testObj.className + '. Let\'s try moving up one level to see what we get.');
+        testObj = testObj.parentNode;
+        count++;
+    }
+    // now you have the object you are looking for - do something with it
+    testObj.remove();
 }
