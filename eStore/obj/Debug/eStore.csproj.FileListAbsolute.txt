@@ -205,3 +205,4 @@ C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations._2.resour
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csproj.GenerateResource.Cache
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.pdb
+C:\Users\pc\Documents\GitHub\eStore\eStore\bin\AuthorizeNet.dll
