@@ -61,7 +61,8 @@ namespace eStore.Controllers
                     Count = 1,
                     DateCreated = DateTime.Now,
                     ProductId = scvm.NewProduct.ProductId,
-                    RecordId = "1"
+                    RecordId = "1",
+                    Product = scvm.NewProduct
                 };
 
                 scvm.CartItems.Add(cart1);
@@ -70,6 +71,7 @@ namespace eStore.Controllers
             else
             {
                 // remove new product, so it cannot be appended to shopping cart DOM in javascript code
+                CartItem.Count++;
                 scvm.NewProduct = null;
             }
 

@@ -28,7 +28,11 @@ function addToCart() {
     xmlhttp1.onreadystatechange = function () {
         if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
             if (xmlhttp1.responseText) { // the onreadystatechange executes multiple times, so this check is required
-                UpdateShoppingCart(xmlhttp1.responseText)
+                var scvm = JSON.parse(xmlhttp1.responseText);
+                
+                //if (scvm.NewProduct != null) {
+                    UpdateShoppingCart(xmlhttp1.responseText);
+                //}
             }
         }
     }
@@ -88,11 +92,11 @@ function UpdateShoppingCart(ShoppingCartViewModelJson) {
 
     localStorage.setItem("ShoppingCartViewModel", ShoppingCartViewModelJson);
     var ShoppingCartViewModel = JSON.parse(ShoppingCartViewModelJson);
-
+    
     document.getElementById("CartCountSidebarBtn").innerHTML = ShoppingCartViewModel.CartItems.length + "<span></span>";
     document.getElementById("ShoppingCartCountSidebar").innerHTML = "(" + ShoppingCartViewModel.CartItems.length + " ITEMS)";
     document.getElementById("cart-total-sidebar").innerHTML = "subtotal: $" + ShoppingCartViewModel.CartTotal;
-    
+
     for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
         getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId);
     }
@@ -215,6 +219,8 @@ function deleteFromCart(ProductId, _this) {
                 var ShoppingCartViewModel = JSON.parse(localStorage.getItem("ShoppingCartViewModel"));
                 
                 document.getElementById("cart-total-sidebar").innerHTML = "subtotal: $" + ShoppingCartViewModel.CartTotal;
+                document.getElementById("ShoppingCartCountSidebar").innerHTML = "(" + ShoppingCartViewModel.CartItems.length + " ITEMS)";
+                document.getElementById("CartCountSidebarBtn").innerHTML = ShoppingCartViewModel.CartItems.length + "<span></span>";
 
                 findParentNode("item", _this);
             }
@@ -227,7 +233,6 @@ function findParentNode(parentClassName, childObj) {
     var testObj = childObj.parentNode;
     var count = 1;
     while (testObj.className != parentClassName) {
-        alert('My name is ' + testObj.className + '. Let\'s try moving up one level to see what we get.');
         testObj = testObj.parentNode;
         count++;
     }
