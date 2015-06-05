@@ -30,7 +30,13 @@ function doCheckoutShipping() {
 
     localStorage.setItem("BillingInfo", JSON.stringify(BillingInfo));
     
-    window.location = '/Checkout/Shipping';
+    if (ValidateCreditCardNumber(document.getElementById("credit-card-number").value)
+            && ValidateCCExpiry(document.getElementById("credit-card-expdate").value))
+    {
+        window.location = '/Checkout/Shipping';
+    } else {
+        alert("Incorrect credit card info");
+    }
 }
 
 function ValidateCreditCardNumber(creditCardNumber) {
@@ -44,30 +50,30 @@ function ValidateCreditCardNumber(creditCardNumber) {
         case '3':
             if (!creditCardNumber.match(/^3\d{3}[ \-]?\d{6}[ \-]?\d{5}$/)) {
                 alert("This is not a valid American Express card number");
-                return 'This is not a valid American Express card number';
+                return false;
             }
             
             break;
         case '4':
             if (!creditCardNumber.match(/^4\d{3}[ \-]?\d{4}[ \-]?\d{4}[ \-]?\d{4}$/)) {
                 alert("This is not a valid Visa card number");
-                return 'This is not a valid Visa card number';
+                return false;
             }
             break;
         case '5':
             if (!creditCardNumber.match(/^5\d{3}[ \-]?\d{4}[ \-]?\d{4}[ \-]?\d{4}$/)) {
                 alert("This is not a valid MasterCard card number");
-                return 'This is not a valid MasterCard card number';
+                return false;
             }
             break;
         case '6':
             if (!creditCardNumber.match(/^6011[ \-]?\d{4}[ \-]?\d{4}[ \-]?\d{4}$/)) {
                 alert("This is not a valid Discover card number");
-                return 'This is not a valid Discover card number';
+                return false;
             }
             break;
         default:
-            return 'This is not a valid credit card number';
+            return false;
     }
     
     // Here's where we use the Luhn Algorithm
@@ -89,8 +95,8 @@ function ValidateCreditCardNumber(creditCardNumber) {
 
     
     // If we made it this far the credit card number is in a valid format
-    alert('This is a valid credit card number');
-    return 'This is a valid credit card number';
+    //alert('This is a valid credit card number');
+    return true;
 }
 
 function ValidateCCExpiry(date) {
@@ -120,12 +126,79 @@ function ValidateCCExpiry(date) {
     }
     return true;
     
-    /*
-    $is_valid_expiration = validateCreditCardExpirationDate($month, $year);
-    if ($is_valid_expiration)
-    {
-        // Format it properly so Authorize.Net will accept it
-        $expiration_date = sprintf("%02d%04d", $month, $year);
+}
+
+GetShoppingCartVM();
+function GetShoppingCartVM() {
+
+    var ShoppingCartVM = localStorage.getItem("ShoppingCartViewModel");
+    ShoppingCartVM = JSON.parse(ShoppingCartVM);
+
+    for (var i = 0; i < ShoppingCartVM.CartItems.length; i++) {
+        
+        var DivItem = document.createElement("DIV");
+        DivItem.className = "item";
+
+        var Img = document.createElement("IMG");
+        Img.src = "http://www.smartdesk360.biz/Images/ecommerce/product3.jpg";
+        DivItem.appendChild(Img);
+
+        var DivItemInfo = document.createElement("DIV");
+        DivItemInfo.className = "item-info";
+
+        var H4 = document.createElement("H4");
+        H4.className = "name";
+        H4.innerHTML = ShoppingCartVM.CartItems[i].Product.Name;
+        DivItemInfo.appendChild(H4);
+
+        var Table = document.createElement("TABLE");
+        var Tbody = document.createElement("TBODY");
+
+        // TR color
+        var TrColor = document.createElement("TR");
+        var TdColorLabel = document.createElement("TD");
+        TdColorLabel.innerHTML = "Color:";
+
+        var TdColorName = document.createElement("TD");
+        TdColorName.innerHTML = ShoppingCartVM.CartItems[i].Product.Color;
+
+        TrColor.appendChild(TdColorLabel);
+        TrColor.appendChild(TdColorName);
+        Tbody.appendChild(TrColor);
+
+        // TR size
+        var TrSize = document.createElement("TR");
+        var TdSizeLabel = document.createElement("TD");
+        TdSizeLabel.innerHTML = "Size:";
+
+        var TdSizeAmount = document.createElement("TD");
+        TdSizeAmount.innerHTML = "2.34";
+
+        TrSize.appendChild(TdSizeLabel);
+        TrSize.appendChild(TdSizeAmount);
+        Tbody.appendChild(TrSize);
+
+        // TR Qty
+        var TrQty = document.createElement("TR");
+        var TdQtyLabel = document.createElement("TD");
+        TdQtyLabel.innerHTML = "Qty:";
+
+        var TdQtyAmount = document.createElement("TD");
+        TdQtyAmount.innerHTML = ShoppingCartVM.CartItems[i].Count;
+
+        TrQty.appendChild(TdQtyLabel);
+        TrQty.appendChild(TdQtyAmount);
+        Tbody.appendChild(TrQty);
+
+        Table.appendChild(Tbody);
+        DivItemInfo.appendChild(Table);
+
+        DivItem.appendChild(DivItemInfo);
+        document.getElementById("order-summary").appendChild(DivItem);
     }
-    */
+
+    document.getElementById("item-subtotal").innerHTML = "item subtotal (" + ShoppingCartVM.CartItems.length + ")";
+    document.getElementById("item-subtotal-amount").innerHTML = "$" + ShoppingCartVM.CartTotal;
+    document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartVM.CartTotal + 20);
+    
 }

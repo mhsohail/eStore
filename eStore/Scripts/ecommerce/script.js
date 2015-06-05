@@ -39,7 +39,6 @@ function addToCart() {
             }
         }
     }
-
 }
 
 getProductDetails();
@@ -110,7 +109,7 @@ function PopulateShoppingCartView(Product, refreshCart, cartItem) {
     if (typeof Product != "undefined") {
         
         if (refreshCart && !cartRefreshed) {
-            alert(refreshCart);
+            //alert(refreshCart);
             document.getElementById("cart-items").innerHTML = "";
             cartRefreshed = true;
         }
