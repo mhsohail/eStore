@@ -211,6 +211,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountApiController_Core.cs" />
+    <Compile Include="Controllers\AccountApiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
@@ -231,6 +233,26 @@
     <Compile Include="Migrations\201505311834295_2.cs" />
     <Compile Include="Migrations\201505311834295_2.Designer.cs">
       <DependentUpon>201505311834295_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506060840158_newUserProfileFields.cs" />
+    <Compile Include="Migrations\201506060840158_newUserProfileFields.Designer.cs">
+      <DependentUpon>201506060840158_newUserProfileFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506060859234_GenderFieldAddedToUserProfile.cs" />
+    <Compile Include="Migrations\201506060859234_GenderFieldAddedToUserProfile.Designer.cs">
+      <DependentUpon>201506060859234_GenderFieldAddedToUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506060905132_GenderFieldAddedToUserProfile_dataType_updated.cs" />
+    <Compile Include="Migrations\201506060905132_GenderFieldAddedToUserProfile_dataType_updated.Designer.cs">
+      <DependentUpon>201506060905132_GenderFieldAddedToUserProfile_dataType_updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506070759302_3.cs" />
+    <Compile Include="Migrations\201506070759302_3.Designer.cs">
+      <DependentUpon>201506070759302_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506071444565_UserId.cs" />
+    <Compile Include="Migrations\201506071444565_UserId.Designer.cs">
+      <DependentUpon>201506071444565_UserId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -256,6 +278,7 @@
     <Content Include="Content\ecommerce\footerStyle1.css" />
     <Content Include="Content\ecommerce\headerStyle1.css" />
     <Content Include="Content\ecommerce\main.css" />
+    <Content Include="Content\ecommerce\profiles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -282,6 +305,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ecommerce\BillingScript.js" />
     <Content Include="Scripts\ecommerce\CartIndexScript.js" />
+    <Content Include="Scripts\ecommerce\OrderStatusScript.js" />
+    <Content Include="Scripts\ecommerce\RegisterScript.js" />
     <Content Include="Scripts\ecommerce\script.js" />
     <Content Include="Scripts\ecommerce\ShippingScript.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -294,6 +319,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -315,6 +341,10 @@
     <Content Include="Views\Checkout\Billing.cshtml" />
     <Content Include="Views\Checkout\Shipping.cshtml" />
     <Content Include="Views\Payment\DPM.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\OrderStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,6 +364,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505311834295_2.resx">
       <DependentUpon>201505311834295_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506060840158_newUserProfileFields.resx">
+      <DependentUpon>201506060840158_newUserProfileFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506060859234_GenderFieldAddedToUserProfile.resx">
+      <DependentUpon>201506060859234_GenderFieldAddedToUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506060905132_GenderFieldAddedToUserProfile_dataType_updated.resx">
+      <DependentUpon>201506060905132_GenderFieldAddedToUserProfile_dataType_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506070759302_3.resx">
+      <DependentUpon>201506070759302_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506071444565_UserId.resx">
+      <DependentUpon>201506071444565_UserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

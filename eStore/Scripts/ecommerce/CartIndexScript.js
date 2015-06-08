@@ -6,8 +6,11 @@ document.getElementById("checkout-sub-title").innerHTML = ShoppingCartViewModel.
 document.getElementById("item-subtotal").innerHTML = "item subtotal (" + ShoppingCartViewModel.CartItems.length + ")";
 document.getElementById("CartItemsCountTopBar").innerHTML = ShoppingCartViewModel.CartItems.length + " items";
 document.getElementById("item-subtotal-amount").innerHTML = "$" + ShoppingCartViewModel.CartTotal;
-document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + 20);
-document.getElementById("CartTotalTopBar").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + 20);
+document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax));
+document.getElementById("CartTotalTopBar").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax));
+
+document.getElementById("estimated-shipping").innerHTML = "$"+localStorage.shipping;
+document.getElementById("estimated-tax").innerHTML = "$"+localStorage.tax;
 
 function getProductDetails(pid, CartItem) {
     var ProductId = (typeof pid == "undefined") ? document.getElementById("ProductId").value : pid;
@@ -126,5 +129,5 @@ function PopulateShoppingCartView(Product, CartItem) {
 }
 
 function doCheckOut() {
-    window.location = '/checkoutbilling';
+    window.location = '/Checkout/Billing';
 }

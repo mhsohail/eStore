@@ -48,6 +48,13 @@ namespace eStore.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string CompanyName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ScreenName { get; set; }
+        public string Gender { get; set; }
+        public bool ReceiveNewsLetter { get; set; }
     }
 
     public class RegisterExternalBindingModel

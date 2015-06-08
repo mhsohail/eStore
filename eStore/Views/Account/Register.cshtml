@@ -1,9 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Register";
 }
 
-<h2>Index</h2>
+<h2>Register</h2>
 
 <!DOCTYPE html>
 
@@ -108,7 +108,7 @@
         <header>
             <div class="main">
                 <ul class="options">
-                    <li><a href="/cart" class="icon icon-cart cart"><span id="CartItemsCountTopBar">02 items</span> <span id="CartTotalTopBar">$290.00</span></a></li>
+                    <li><a href="/cart" class="icon icon-cart cart"><span>02 items</span> <span>$290.00</span></a></li>
                     <li><a href="#" class="icon icon-search">search</a></li>
                 </ul>
                 <ul class="account">
@@ -179,93 +179,54 @@
 
 
 
-            <style type="text/css">
-                section {
-                    max-width: 1080px;
-                    margin: 0 auto;
-                }
-            </style>
-
-            <h1 class="checkout-title">your cart</h1>
-            <h3 class="checkout-sub-title" id="checkout-sub-title">2(items)</h3>
-
-            <section>
-                <div class="row7To3">
-                    <div class="col">
-                        <div>
-                            <div class="order-summary">
-                                <h3 class="title">order summary</h3>
-                                <div class="detail">
-                                    <div class="label">promo code</div>
-                                    <div class="clearfix"></div>
-                                    <div class="input-action">
-                                        <input type="text" />
-                                        <button class="btn-danger apply">apply</button>
-                                    </div>
-                                </div>
-                                <div class="detail">
-                                    <div class="label" id="item-subtotal">item subtotal (2)</div>
-                                    <div class="value" id="item-subtotal-amount">$270.00</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="label">estimated shipping</div>
-                                    <div class="value" id="estimated-shipping">$10.00</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="label">estimated tax</div>
-                                    <div class="value" id="estimated-tax">$10.00</div>
-                                    <div class="clearfix"></div>
-                                    <select>
-                                        <option>Standard $10.00 Arrives 3 days</option>
-                                    </select>
-                                </div>
-                                <div class="detail">
-                                    <div class="label">total</div>
-                                    <div class="value" id="item-total-amount">$290.00</div>
-                                </div>
-                                <div class="detail">
-                                    <button class="checkout btn-danger" onclick="doCheckOut()">check out</button>
-                                </div>
+            <section style="max-width: 800px;margin: 0 auto;">
+                <div class="form-container">
+                    <div class="form-header">
+                        create account
+                    </div>
+                    <div class="form">
+                        <div class="form-control">
+                            <input type="text" class="field" placeholder="Company Name" id="company-name" />
+                        </div>
+                        <div class="two-col">
+                            <div class="form-control">
+                                <input type="text" class="field" placeholder="First Name" id="first-name" />
+                            </div>
+                            <div class="form-control">
+                                <input type="text" class="field" placeholder="Last Name" id="last-name" />
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div>
-                            <table class="cart-table">
-                                <thead>
-                                    <tr>
-                                        <td>item description</td>
-                                        <td>qty</td>
-                                        <td>price</td>
-                                        <td>total</td>
-                                    </tr>
-                                </thead>
-                                <tbody id="cart-items-tbody">
-                                </tbody>
-                            </table>
+                        <div class="two-col">
+                            <div class="form-control">
+                                <input type="text" class="field" placeholder="Screen Name" id="screen-name" />
+                            </div>
                         </div>
+                        <div class="two-col">
+                            <div class="form-control">
+                                <input type="text" class="field" placeholder="Email" id="email" />
+                            </div>
+                            <div class="form-control">
+                                <label>Gender</label>
+                                <div><input type="radio" name="sex" value="male" /> Male <input type="radio" name="sex" value="female" /> Female</div>
+                            </div>
+                        </div>
+                        <div class="two-col">
+                            <div class="form-control">
+                                <input type="text" class="field" placeholder="Password" id="password" />
+                            </div>
+                            <div class="form-control">
+                                <input type="text" class="field" placeholder="Confirm Password" id="confirm-password" />
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label><input type="checkbox" value="true" id="receive-newsletter" /> Recieve our newsletter</label>
+                        </div>
+                        <button class="previous" onclick="javascript: window.history.back();">cancel</button>
+                        <button class="submit" onclick="registerAccount()">register</button>
                     </div>
                 </div>
             </section>
 
-            <h4 class="section-title"><span>you might also like</span></h4>
-
-            <section>
-                <div class="image-blocks col-4-imgs">
-                    <div class="spaced">
-                        <img src="http://cdn.shopify.com/s/files/1/0687/0339/products/hoodie_3_front_1024x1024.jpg?v=1418299984">
-                    </div>
-                    <div class="spaced">
-                        <img src="http://cdn.shopify.com/s/files/1/0687/0339/products/T_7_front_1024x1024.jpg?v=1418299837">
-                    </div>
-                    <div class="spaced">
-                        <img src="http://cdn.shopify.com/s/files/1/0687/0339/products/T_5_front_1024x1024.jpg?v=1419315506">
-                    </div>
-                    <div class="spaced">
-                        <img src="http://cdn.shopify.com/s/files/1/0687/0339/products/hoodie_4_front_1024x1024.jpg?v=1422361362">
-                    </div>
-                </div>
-            </section>
 
         </div>
 
@@ -356,6 +317,7 @@
     };
     </script>
 
-    <script src="~/Scripts/ecommerce/CartIndexScript.js"></script>
+    <script src="~/Scripts/ecommerce/RegisterScript.js"></script>
+
 </body>
 </html>

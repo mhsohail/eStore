@@ -7,22 +7,22 @@
 
 <!-- Add a credit card number input field -->
 @{
-    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<p><div style='float:left;width:250px;'><!--<label>Credit Card Number</label>--><div id='CreditCardNumber'><input type='hidden' size='28' name='x_card_num' value='' id='x_card_num' /></div></div>";
+    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<p><div style='float:left;width:250px;'><!--<label>Credit Card Number</label>--><div id='CreditCardNumber'><input type='text' size='28' name='x_card_num' value='' id='x_card_num' /></div></div>";
 }
 
 <!-- Add an expiry date input field -->
 @{
-    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<div style='float:left;width:70px;'><!--<label>Exp.</label>--><div id='CreditCardExpiration'><input type='hidden' size='5' maxlength='5' name='x_exp_date' value='' id='x_exp_date' type='hidden' /></div></div>";
+    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<div style='float:left;width:70px;'><!--<label>Exp.</label>--><div id='CreditCardExpiration'><input type='text' size='5' maxlength='5' name='x_exp_date' value='' id='x_exp_date' /></div></div>";
 }
 
 <!-- Add a CVV input field -->
 @{
-    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<div style='float:left;width:70px;'><!--<label>CCV</label>--><div id='CCV'><input type='hidden' size='5' maxlength='5' name='x_card_code' id='x_card_code' value='' type='hidden' /></div></div></p>";
+    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<div style='float:left;width:70px;'><!--<label>CCV</label>--><div id='CCV'><input type='text' size='5' maxlength='5' name='x_card_code' id='x_card_code' value='' /></div></div></p>";
 }
 
 <!--Add a Submit button -->
 @{
-    //ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<div style='clear:both'></div><p><input type='submit' class='submit' value='Order with DPM!' /></p>";
+    ViewBag.DPMFormOpen = ViewBag.DPMFormOpen + "<div style='clear:both'></div><p><input type='submit' class='submit' value='Order with DPM!' /></p>";
 }
 
 <!--Add a Submit button -->
@@ -39,8 +39,8 @@
     document.getElementById("x_card_num").value = BillingInfo.CreditCardInfo.Number;
     document.getElementById("x_exp_date").value = BillingInfo.CreditCardInfo.Expdate;
     document.getElementById("x_card_code").value = BillingInfo.CreditCardInfo.CVC;
-    document.getElementsByName("x_amount")[0].value = ShoppingCartViewModel.CartTotal;
+    //document.getElementsByName("x_amount")[0].value = 9.25;//ShoppingCartViewModel.CartTotal;
     
     // submit transaction form
-    document.getElementsByTagName("form")[0].submit();
+    //document.getElementsByTagName("form")[0].submit();
 </script>

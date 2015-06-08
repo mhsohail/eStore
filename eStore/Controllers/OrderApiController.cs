@@ -19,9 +19,9 @@ namespace eStore.Controllers
         }
 
         // GET: api/OrderApi/5
-        public string Get(int id)
+        public IEnumerable<Order> Get(int id)
         {
-            return "value";
+            return db.Orders as IEnumerable<Order>;
         }
 
         // POST: api/OrderApi
@@ -35,8 +35,8 @@ namespace eStore.Controllers
                 {
                     order.OrderDate = DateTime.Now;
                     db.Orders.Add(order);
-                    //db.SaveChanges();
-                    //transaction.Commit();
+                    db.SaveChanges();
+                    transaction.Commit();
                     response = Request.CreateResponse<string>(HttpStatusCode.OK, "Order placed");
                 }
                 catch(Exception exc)

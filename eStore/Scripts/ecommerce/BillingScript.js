@@ -1,4 +1,7 @@
 ﻿
+document.getElementById("estimated-shipping").innerHTML = "$" + localStorage.shipping;
+document.getElementById("estimated-tax").innerHTML = "$" + localStorage.tax;
+
 function doCheckoutShipping() {
 
     var CreditCard = {
@@ -199,6 +202,6 @@ function GetShoppingCartVM() {
 
     document.getElementById("item-subtotal").innerHTML = "item subtotal (" + ShoppingCartVM.CartItems.length + ")";
     document.getElementById("item-subtotal-amount").innerHTML = "$" + ShoppingCartVM.CartTotal;
-    document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartVM.CartTotal + 20);
+    document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartVM.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax));
     
 }
