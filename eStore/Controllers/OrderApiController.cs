@@ -19,9 +19,15 @@ namespace eStore.Controllers
         }
 
         // GET: api/OrderApi/5
-        public IEnumerable<Order> Get(int id)
+        public IEnumerable<Order> Get(string userName)
         {
-            return db.Orders as IEnumerable<Order>;
+            IEnumerable<Order> orders = new List<Order>();
+            if (userName != null)
+            {
+                orders = db.Orders.Where(o => o.Username.Equals(userName)) as IEnumerable<Order>;
+            }
+
+            return orders;
         }
 
         // POST: api/OrderApi
