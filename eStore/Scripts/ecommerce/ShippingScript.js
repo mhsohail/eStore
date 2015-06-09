@@ -2,6 +2,25 @@
 document.getElementById("estimated-shipping").innerHTML = "$" + localStorage.shipping;
 document.getElementById("estimated-tax").innerHTML = "$" + localStorage.tax;
 
+if (sessionStorage.PostLoginReturnUrlForShipping) {
+    
+    var ShippingInfo = JSON.parse(localStorage.getItem("ShippingInfo"));
+    
+    document.getElementById("shipping-info-email").value = ShippingInfo.Email;
+    document.getElementById("shipping-info-firstname").value = ShippingInfo.FirstName;
+    document.getElementById("shipping-info-lastname").value = ShippingInfo.LastName;
+    document.getElementById("shipping-info-company").value = ShippingInfo.Company;
+    document.getElementById("shipping-info-address").value = ShippingInfo.Address;
+    document.getElementById("shipping-info-apt").value = ShippingInfo.Apt;
+    document.getElementById("shipping-info-city").value = ShippingInfo.City;
+    document.getElementById("shipping-info-state").value = ShippingInfo.State;
+    document.getElementById("shipping-info-zipcode").value = ShippingInfo.Zipcode;
+    document.getElementById("shipping-info-country").value = ShippingInfo.Country;
+    document.getElementById("shipping-info-phone").value = ShippingInfo.Phone;
+    
+    sessionStorage.removeItem("PostLoginReturnUrlForShipping");
+}
+
 function doPlaceOrder() {
     
     var ShippingInfo = {
@@ -17,12 +36,12 @@ function doPlaceOrder() {
         Country: document.getElementById("shipping-info-country").value,
         Phone: document.getElementById("shipping-info-phone").value
     };
-
+    
     localStorage.setItem("ShippingInfo", JSON.stringify(ShippingInfo));
-
+    
     var ShoppingCartVM = localStorage.getItem("ShoppingCartViewModel");
     var ShoppingCartVM = JSON.parse(ShoppingCartVM);
-
+    
     var Order = {
         Username: "mhsohail",
         FirstName: "Muhammad",
@@ -36,11 +55,11 @@ function doPlaceOrder() {
         Email: sessionStorage.getItem("loggedin_username"),
         Total: ShoppingCartVM.CartTotal
     };
-
+    
     localStorage.setItem("Order", JSON.stringify(Order));
 
     if (Order.Email == null || Order.Email == "") {
-        sessionStorage.setItem("PostLoginReturnUrl", "/Checkout/Shipping");
+        sessionStorage.setItem("PostLoginReturnUrlForShipping", "/Checkout/Shipping");
         window.location = "/Account/Login";
     }
     
@@ -65,7 +84,7 @@ function doPlaceOrder() {
             }
         }
     }
-
+    
 }
 
 GetShoppingCartVM();
