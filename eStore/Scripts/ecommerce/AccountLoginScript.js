@@ -16,7 +16,17 @@
         sessionStorage.setItem(tokenKey, data.access_token);
         sessionStorage.setItem("loggedin_username", data.userName);
         sessionStorage.setItem("loggedin_data", JSON.stringify(data));
-        window.location = '/Account/Index';
+        
+        if (sessionStorage.PostLoginReturnUrlForShipping) {
+            if (sessionStorage.PostLoginReturnUrlForShipping != null || sessionStorage.PostLoginReturnUrlForShipping != "") {
+                window.location = sessionStorage.PostLoginReturnUrlForShipping;
+            } else {
+                window.location = '/Account/Index';
+            }
+        }
+        else {
+            window.location = '/Account/Index';
+        }
     }).fail(function () {
 
     });

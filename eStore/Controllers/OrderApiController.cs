@@ -24,7 +24,7 @@ namespace eStore.Controllers
             IEnumerable<Order> orders = new List<Order>();
             if (userName != null)
             {
-                orders = db.Orders.Where(o => o.Username.Equals(userName)) as IEnumerable<Order>;
+                orders = db.Orders.Where(o => o.Email.Equals(userName)) as IEnumerable<Order>;
             }
 
             return orders;

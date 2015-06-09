@@ -33,9 +33,16 @@ function doPlaceOrder() {
         PostalCode: "43600",
         Country: "Pakistan",
         Phone: "0303-5332033",
-        Email: "sohailx2x@gmail.com",
+        Email: sessionStorage.getItem("loggedin_username"),
         Total: ShoppingCartVM.CartTotal
     };
+
+    localStorage.setItem("Order", JSON.stringify(Order));
+
+    if (Order.Email == null || Order.Email == "") {
+        sessionStorage.setItem("PostLoginReturnUrl", "/Checkout/Shipping");
+        window.location = "/Account/Login";
+    }
     
     var xmlhttp0;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
