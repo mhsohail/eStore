@@ -50,7 +50,7 @@ namespace eStore.Controllers
         }
 
         // POST: api/ShoppingCartApi
-        public HttpResponseMessage Post(ShoppingCartViewModel scvm)
+        public HttpResponseMessage Post(int qty, ShoppingCartViewModel scvm)
         {
             var CartItem = scvm.CartItems.FirstOrDefault(ci => ci.ProductId == scvm.NewProduct.ProductId);
             if (CartItem == null)
@@ -58,7 +58,7 @@ namespace eStore.Controllers
                 Cart cart1 = new Cart
                 {
                     CartId = 1,
-                    Count = 1,
+                    Count = qty,
                     DateCreated = DateTime.Now,
                     ProductId = scvm.NewProduct.ProductId,
                     RecordId = "1",
@@ -66,13 +66,14 @@ namespace eStore.Controllers
                 };
 
                 scvm.CartItems.Add(cart1);
-                scvm.CartTotal = scvm.CartTotal + scvm.NewProduct.Price;
+                scvm.CartTotal = scvm.CartTotal + (scvm.NewProduct.Price * qty);
             }
             else
             {
                 // remove new product, so it cannot be appended to shopping cart DOM in javascript code
-                CartItem.Count++;
-                scvm.CartTotal = scvm.CartTotal + scvm.NewProduct.Price;
+                scvm.CartTotal = scvm.CartTotal - (scvm.NewProduct.Price * CartItem.Count);
+                CartItem.Count = qty;
+                scvm.CartTotal = scvm.CartTotal + (scvm.NewProduct.Price * CartItem.Count);
                 scvm.NewProduct = null;
             }
 
@@ -97,8 +98,23 @@ namespace eStore.Controllers
         }
 
         // PUT: api/ShoppingCartApi/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, int qty, ShoppingCartViewModel scvm)
         {
+            var CartItem = scvm.CartItems.FirstOrDefault(ci => ci.ProductId == id);
+            var Product = db.Products.FirstOrDefault(p => p.ProductId == CartItem.ProductId);
+
+            if (CartItem != null && Product != null)
+            {
+                // remove new product, so it cannot be appended to shopping cart DOM in javascript code
+                scvm.CartTotal = scvm.CartTotal - (Product.Price * CartItem.Count);
+                CartItem.Count = qty;
+                scvm.CartTotal = scvm.CartTotal + (Product.Price * CartItem.Count);
+                scvm.NewProduct = Product;
+            }
+
+            var resp = new HttpResponseMessage();
+            resp = Request.CreateResponse<ShoppingCartViewModel>(HttpStatusCode.OK, scvm);
+            return resp;
         }
 
         // DELETE: api/ShoppingCartApi/5

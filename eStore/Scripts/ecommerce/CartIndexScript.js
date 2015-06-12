@@ -56,6 +56,7 @@ for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
 function PopulateShoppingCartView(Product, CartItem) {
 
     var Tr = document.createElement("TR");
+    Tr.className = "CartItemRow";
     var Td = document.createElement("TD");
 
     var Img = document.createElement("IMG");
@@ -105,12 +106,37 @@ function PopulateShoppingCartView(Product, CartItem) {
     Td.appendChild(DivItemDetail);
     Tr.appendChild(Td);
 
+    /*
     // TD Qty
     var TdQty = document.createElement("TD");
     TdQty.innerHTML = CartItem.Count;
     Tr.appendChild(TdQty);
     /////
+    */
 
+    // TD Qty
+    var TdQty = document.createElement("TD");
+    var InputQty = document.createElement("input");
+    InputQty.type = "text";
+    InputQty.addEventListener("keyup", function () {
+        var CartItem = {
+            CartId: 1,
+            Count: 2,
+            ProductId: 1
+        };
+        findParentNode("CartItemRow", this, this.value);
+    });
+    InputQty.value = CartItem.Count;
+    TdQty.appendChild(InputQty);
+    Tr.appendChild(TdQty);
+    /////
+
+    /*
+    <div class="input-action">
+    <input type="text">
+        <button class="btn-danger apply">apply</button>
+    </div>
+    */
     // TD Price
     var TdPrice = document.createElement("TD");
     TdPrice.innerHTML = "$" + Product.Price;
@@ -119,11 +145,73 @@ function PopulateShoppingCartView(Product, CartItem) {
 
     // TD Total
     var TdTotal = document.createElement("TD");
+    TdTotal.className = "TotalPrice";
     TdTotal.innerHTML = "$" + (CartItem.Count * Product.Price).toFixed(2);
     Tr.appendChild(TdTotal);
     /////
     
+    var DivCartItemContainer = document.createElement("div");
+    DivCartItemContainer.className = "CartItem";
+
+    var InputCartProductId = document.createElement("input");
+    InputCartProductId.type = "hidden";
+    InputCartProductId.className = "ProductId";
+    InputCartProductId.value = CartItem.ProductId;
+    DivCartItemContainer.appendChild(InputCartProductId);
+
+    var InputCount = document.createElement("input");
+    InputCount.type = "hidden";
+    InputCount.className = "Count";
+    InputCount.value = CartItem.Count;
+    DivCartItemContainer.appendChild(InputCount);
+
+    Tr.appendChild(DivCartItemContainer);
     document.getElementById("cart-items-tbody").appendChild(Tr);
+}
+/*CartId = 1,
+Count = qty,
+DateCreated = DateTime.Now,
+ProductId = scvm.NewProduct.ProductId,
+RecordId = "1",
+Product = scvm.NewProduct*/
+
+function findParentNode(parentClassName, childObj, qty) {
+    var parentNode = childObj.parentNode;
+    var count = 1;
+    while (parentNode.className != parentClassName) {
+        parentNode = parentNode.parentNode;
+        count++;
+    }
+
+    var ProductId = parentNode.querySelector(".CartItem").querySelector(".ProductId").value;
+
+    var xmlhttp0;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp0 = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp0.open("PUT", "http://localhost:4785/api/ShoppingCartApi?id=" + ProductId + "&qty=" + qty, true);
+    xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
+    xmlhttp0.send(localStorage.getItem("ShoppingCartViewModel"));
+    
+    xmlhttp0.onreadystatechange = function () {
+        if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
+            if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
+                localStorage.setItem("ShoppingCartViewModel", xmlhttp0.responseText);
+                var scvm = JSON.parse(xmlhttp0.responseText);
+                var CartTotalGross = (scvm.CartTotal + Number(localStorage.getItem("shipping")) + Number(localStorage.getItem("tax"))).toFixed(2);
+                document.getElementById("item-subtotal-amount").innerHTML = "$" + scvm.CartTotal.toFixed(2);
+                document.getElementById("item-total-amount").innerHTML = "$" + CartTotalGross;
+                parentNode.querySelector(".TotalPrice").innerHTML = "$" + (scvm.NewProduct.Price * qty).toFixed(2);
+                document.getElementById("CartTotalTopBar").innerHTML = "$" + CartTotalGross;
+            }
+        }
+    }
+    
 }
 
 function doCheckOut() {
