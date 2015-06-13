@@ -16,7 +16,7 @@ namespace eStore.Controllers
     public class ShoppingCartApiController : ApiController
     {
 
-        EStoreContext db = new EStoreContext();
+        eStoreContext db = new eStoreContext();
 
         // GET: api/ShoppingCartApi
         public HttpResponseMessage Get()

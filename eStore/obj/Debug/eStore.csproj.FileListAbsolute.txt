@@ -208,6 +208,5 @@ C:\Users\pc\Documents\GitHub\eStore\eStore\bin\Microsoft.Owin.Security.Microsoft
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\System.Web.Http.Owin.xml
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.pdb
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csprojResolveAssemblyReference.cache
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations._3.resources
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.UserId.resources

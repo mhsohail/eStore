@@ -9,7 +9,7 @@ namespace eStore.Controllers
 {
     public class HomeController : Controller
     {
-        eStore.Models.EStoreContext db = new Models.EStoreContext();
+        eStore.Models.eStoreContext db = new Models.eStoreContext();
 
         public ActionResult Index()
         {

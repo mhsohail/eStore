@@ -7,7 +7,7 @@ using System.Web;
 
 namespace eStore.Models
 {
-    public class EStoreContext : IdentityDbContext<ApplicationUser>
+    public class eStoreContext : IdentityDbContext<ApplicationUser>
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -16,7 +16,7 @@ namespace eStore.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
 
-        public EStoreContext()
+        public eStoreContext()
             : base("name=EStoreContext", throwIfV1Schema: false)
         {
         }

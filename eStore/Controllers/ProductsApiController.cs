@@ -14,7 +14,7 @@ namespace eStore.Controllers
 {
     public class ProductsApiController : ApiController
     {
-        private EStoreContext db = new EStoreContext();
+        private eStoreContext db = new eStoreContext();
 
         // GET: api/ProductsApi
         public IQueryable<Product> GetProducts()

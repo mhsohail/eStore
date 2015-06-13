@@ -10,7 +10,7 @@ namespace eStore.Controllers
 {
     public class OrderApiController : ApiController
     {
-        EStoreContext db = new EStoreContext();
+        eStoreContext db = new eStoreContext();
 
         // GET: api/OrderApi
         public IEnumerable<string> Get()

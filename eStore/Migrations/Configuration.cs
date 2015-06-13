@@ -6,17 +6,17 @@ namespace eStore.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<eStore.Models.EStoreContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<eStore.Models.eStoreContext>
     {
 
-        EStoreContext db = new EStoreContext();
+        eStoreContext db = new eStoreContext();
 
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(eStore.Models.EStoreContext context)
+        protected override void Seed(eStore.Models.eStoreContext context)
         {
             
             try

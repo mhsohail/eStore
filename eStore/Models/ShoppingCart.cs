@@ -8,7 +8,7 @@ namespace eStore.Models
 {
     public partial class ShoppingCart
     {
-        EStoreContext storeDB = new EStoreContext();
+        eStoreContext storeDB = new eStoreContext();
 
         string ShoppingCartId { get; set; }
 

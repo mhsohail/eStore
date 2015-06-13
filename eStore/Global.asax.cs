@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace eStore
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<Models.EStoreContext>(null);
+            Database.SetInitializer(new eStoreDbInitializer());
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
