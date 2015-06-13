@@ -20,18 +20,6 @@ document.getElementById("deduct-quantity").onclick = function() {
     document.getElementById("prodQty").value--;
 };
 
-function isValidAmount(number) {
-    if (number == "" ||
-        number == null ||
-        isNaN(number) ||
-        number % 1 != 0 ||
-        number < 1)
-    {
-        return false;
-    }
-    return true;
-}
-
 function addToCart() {
     
     if (!isValidAmount(document.getElementById("prodQty").value))
