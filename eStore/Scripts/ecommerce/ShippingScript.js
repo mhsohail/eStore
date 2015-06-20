@@ -80,7 +80,33 @@ function doPlaceOrder() {
         if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
             if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
                 //alert(xmlhttp0.responseText);
-                window.location = "/Payment/DPM/";
+                //window.location = "/Payment/DPM/";
+                ProcessPayment();
+            }
+        }
+    }
+
+    function ProcessPayment() {
+        var xmlhttp1;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp1 = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp1.open("POST", "http://localhost:4785/api/PaymentApi", true);
+        xmlhttp1.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp1.setRequestHeader("Accept", "application/json;charset=UTF-8");
+        xmlhttp1.send(JSON.stringify(Order));
+
+        xmlhttp1.onreadystatechange = function () {
+            if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
+                if (xmlhttp1.responseText) { // the onreadystatechange executes multiple times, so this check is required
+                    //alert(xmlhttp0.responseText);
+                    //window.location = "/Payment/DPM/";
+                    ProcessPayment();
+                }
             }
         }
     }

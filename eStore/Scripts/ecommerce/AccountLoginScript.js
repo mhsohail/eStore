@@ -1,12 +1,11 @@
 ﻿function doLogin() {
-    
     var tokenKey = 'accessToken';
     var loginData = {
         grant_type: 'password',
         username: document.getElementById("username").value,
         password: document.getElementById("password").value
     };
-
+    
     $.ajax({
         type: 'POST',
         url: '/Token',

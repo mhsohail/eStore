@@ -28,6 +28,11 @@ namespace eStore.Controllers
             return View();
         }
 
+        public ActionResult ccinfo()
+        {
+            return View();
+        }
+
         // GET: Pay/Details/5
         public ActionResult Details(int id)
         {

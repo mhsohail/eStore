@@ -1,13 +1,9 @@
-﻿
+﻿@using eStore.Models
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
-
-
-
-
 
 <!DOCTYPE html>
 
@@ -211,6 +207,8 @@
                 </div>
             </section>
         </div>
+
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
 
         <footer>
             <div class="footer-content">

@@ -40,4 +40,9 @@ namespace eStore.Models
 
         public string ProviderKey { get; set; }
     }
+
+    public class ExternalLoginListViewModel
+    {
+        public string ReturnUrl { get; set; }
+    }
 }

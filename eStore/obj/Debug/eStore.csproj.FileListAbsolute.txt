@@ -210,3 +210,9 @@ C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.pdb
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations._3.resources
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.UserId.resources
+C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.Data.dll
+C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.WebData.dll
+C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.Data.xml
+C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.WebData.xml
+C:\Users\pc\Documents\GitHub\eStore\eStore\bin\Microsoft.Web.Helpers.dll
