@@ -7,7 +7,7 @@ else {// code for IE6, IE5
     xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-xmlhttp0.open("GET", "http://localhost:4785/api/OrderApi?userName=" + sessionStorage.getItem("loggedin_username"), true);
+xmlhttp0.open("GET", window.ROOT + "/api/OrderApi?userName=" + sessionStorage.getItem("loggedin_username"), true);
 xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
 xmlhttp0.send();
 

@@ -48,7 +48,7 @@ function addToCart() {
         xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
     }
     
-    xmlhttp1.open("POST", "http://localhost:4785/api/ShoppingCartApi?qty="+qty, true);
+    xmlhttp1.open("POST", window.ROOT + "/api/ShoppingCartApi?qty="+qty, true);
     xmlhttp1.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp1.send(ShoppingCartViewModel);
     
@@ -80,7 +80,7 @@ function addToCart() {
             xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        xmlhttp0.open("GET", "http://localhost:4785/api/ProductsApi/" + ProductId, true);
+        xmlhttp0.open("GET", window.ROOT + "/api/ProductsApi/" + ProductId, true);
         xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xmlhttp0.send();
 
@@ -244,7 +244,7 @@ function addToCart() {
             xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
         }
     
-        xmlhttp2.open("DELETE", "http://localhost:4785/api/ShoppingCartApi/" + ProductId, true);
+        xmlhttp2.open("DELETE", window.ROOT + "/api/ShoppingCartApi/" + ProductId, true);
         xmlhttp2.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xmlhttp2.send(ShoppingCartViewModelJson);
     

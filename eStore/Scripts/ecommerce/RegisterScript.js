@@ -22,7 +22,7 @@ function registerAccount() {
         xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
     }
     
-    xmlhttp0.open("POST", "http://localhost:4785/api/AccountApi/Register", true);
+    xmlhttp0.open("POST", window.ROOT + "/api/AccountApi/Register", true);
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
     xmlhttp0.send(JSON.stringify(RegisterBindingModel));

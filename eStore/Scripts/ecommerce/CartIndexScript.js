@@ -21,7 +21,7 @@ function getProductDetails(pid, CartItem) {
         xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
     }
     
-    xmlhttp0.open("GET", "http://localhost:4785/api/ProductsApi/" + ProductId, true);
+    xmlhttp0.open("GET", window.ROOT + "/api/ProductsApi/" + ProductId, true);
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.send();
     
@@ -195,7 +195,7 @@ function UpdateCart(parentNode, qty) {
         xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
     }
     
-    xmlhttp0.open("PUT", "http://localhost:4785/api/ShoppingCartApi?id=" + ProductId + "&qty=" + qty, true);
+    xmlhttp0.open("PUT", window.ROOT + "/api/ShoppingCartApi?id=" + ProductId + "&qty=" + qty, true);
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
     xmlhttp0.send(localStorage.getItem("ShoppingCartViewModel"));

@@ -6,3 +6,6 @@ var shipping = 12;
 
 localStorage.setItem("tax", tax);
 localStorage.setItem("shipping", shipping);
+
+//window.ROOT = 'http://estore-6.apphb.com';
+window.ROOT = 'http://localhost:4785';

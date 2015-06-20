@@ -71,7 +71,7 @@ function doPlaceOrder() {
         xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xmlhttp0.open("POST", "http://localhost:4785/api/OrderApi", true);
+    xmlhttp0.open("POST", window.ROOT + "/api/OrderApi", true);
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
     xmlhttp0.send(JSON.stringify(Order));
@@ -95,7 +95,7 @@ function doPlaceOrder() {
             xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        xmlhttp1.open("POST", "http://localhost:4785/api/PaymentApi", true);
+        xmlhttp1.open("POST", window.ROOT + "/api/PaymentApi", true);
         xmlhttp1.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xmlhttp1.setRequestHeader("Accept", "application/json;charset=UTF-8");
         xmlhttp1.send(JSON.stringify(Order));
