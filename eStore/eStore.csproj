@@ -323,6 +323,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Images\ecommerce\contact-social-icons.svg" />
+    <Content Include="Images\ecommerce\cart-icons.svg" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ecommerce\AccountLoginScript.js" />
     <Content Include="Scripts\ecommerce\BillingScript.js" />

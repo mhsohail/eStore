@@ -277,4 +277,69 @@ function addToCart() {
         // now you have the object you are looking for - do something with it
         testObj.remove();
     }
+    
+    document.getElementById("facebook-icon").onclick = function () {
+        console.log("facebook share...");
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '396373413884119',
+                xfbml: true,
+                version: 'v2.3'
+            });
 
+            // other code goes here
+            // share current page - simple share
+            FB.ui({
+                method: 'share',
+                //href: window.location.origin + window.location.pathname,
+                href: "http://vdovalley.com/Videos/Details/2709",
+            }, function (response) { });
+
+            // share current page - complex share
+            /*FB.ui({
+                method: 'share_open_graph',
+                action_type: 'og.likes',
+                action_properties: JSON.stringify({
+                    object: 'https://developers.facebook.com/docs/',
+                })
+            }, function (response) {
+                // Debug response (optional)
+                console.log(response);
+            });
+            */
+
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    // the user is logged in and has authenticated your
+                    // app, and response.authResponse supplies
+                    // the user's ID, a valid access token, a signed
+                    // request, and the time the access token 
+                    // and signed request each expire
+                    var uid = response.authResponse.userID;
+                    var userAccessToken = response.authResponse.accessToken;
+
+                } else if (response.status === 'not_authorized') {
+                    // the user is logged in to Facebook, 
+                    // but has not authenticated your app
+                    alert("Not authorized");
+                } else {
+                    // the user isn't logged in to Facebook.
+                    alert("Not logged in");
+                    FB.login(function (response) {
+                        // handle the response
+                    }, {
+                        scope: 'publish_actions',
+                        return_scopes: true
+                    });
+                }
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    };
