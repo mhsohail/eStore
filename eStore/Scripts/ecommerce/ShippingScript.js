@@ -103,9 +103,8 @@ function doPlaceOrder() {
         xmlhttp1.onreadystatechange = function () {
             if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
                 if (xmlhttp1.responseText) { // the onreadystatechange executes multiple times, so this check is required
-                    //alert(xmlhttp0.responseText);
+                    console.log(xmlhttp0.responseText);
                     //window.location = "/Payment/DPM/";
-                    ProcessPayment();
                 }
             }
         }

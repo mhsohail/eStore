@@ -33,6 +33,11 @@ namespace eStore.Controllers
             return View();
         }
 
+        public ActionResult invoice()
+        {
+            return View();
+        }
+
         // GET: Pay/Details/5
         public ActionResult Details(int id)
         {

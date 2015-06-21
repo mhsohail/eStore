@@ -370,6 +370,7 @@
     <Content Include="Views\Account\OrderStatus.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Payment\ccinfo.cshtml" />
+    <Content Include="Views\Payment\invoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

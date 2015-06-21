@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace eStore.Controllers
 {
@@ -44,7 +45,15 @@ namespace eStore.Controllers
             // Step 3 - Send the request to the gateway
             var response = gateway.Send(request);
 
-            var ResponseMsg = Request.CreateResponse<string>(response.ResponseCode + ":" + response.Message);
+            Dictionary<string, object> invoice = new Dictionary<string,object>();
+            invoice.Add("Amount", response.Amount);
+            invoice.Add("Message", response.Message);
+            invoice.Add("TransactionID", response.TransactionID);
+
+            var serializer = new JavaScriptSerializer();
+            var InvoiceJson = serializer.Serialize(invoice);
+
+            var ResponseMsg = Request.CreateResponse<string>(InvoiceJson);
             return ResponseMsg;
         }
 

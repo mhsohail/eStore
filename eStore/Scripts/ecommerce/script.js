@@ -70,8 +70,8 @@ function addToCart() {
 
     getProductDetails();
     function getProductDetails(pid, refreshCart, cartItem) {
-        var ProductId = (typeof pid == "undefined") ? document.getElementById("ProductId").value : pid;
-    
+        var ProductId = ((typeof pid == "undefined") ? document.getElementById("ProductId").value : pid);
+        console.log("ProductDetails");
         var xmlhttp0;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp0 = new XMLHttpRequest();
@@ -107,7 +107,7 @@ function addToCart() {
             }
         }
     }
-
+    
     getShoppingCart();
     function getShoppingCart() {
         if (!localStorage.ShoppingCartViewModel) {
@@ -116,7 +116,7 @@ function addToCart() {
 
         UpdateShoppingCart(localStorage.getItem("ShoppingCartViewModel"));
     }
-
+    
     function UpdateShoppingCart(ShoppingCartViewModelJson, refreshCart) {
 
         localStorage.setItem("ShoppingCartViewModel", ShoppingCartViewModelJson);

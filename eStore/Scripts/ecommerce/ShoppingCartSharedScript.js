@@ -1,6 +1,6 @@
 ﻿var ShoppingCartViewModel = JSON.parse(localStorage.getItem("ShoppingCartViewModel"));
 document.getElementById("CartItemsCountTopBar").innerHTML = ShoppingCartViewModel.CartItems.length + " items";
-document.getElementById("CartTotalTopBar").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax));
+document.getElementById("CartTotalTopBar").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax)).toFixed(2);
 
 function isValidAmount(number) {
     var strNumber = number.toString();

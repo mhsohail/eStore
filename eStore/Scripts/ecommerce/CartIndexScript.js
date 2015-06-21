@@ -5,7 +5,7 @@ var ShoppingCartViewModel = JSON.parse(localStorage.getItem("ShoppingCartViewMod
 document.getElementById("checkout-sub-title").innerHTML = ShoppingCartViewModel.CartItems.length + "(items)";
 document.getElementById("item-subtotal").innerHTML = "item subtotal (" + ShoppingCartViewModel.CartItems.length + ")";
 document.getElementById("item-subtotal-amount").innerHTML = "$" + ShoppingCartViewModel.CartTotal;
-document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax));
+document.getElementById("item-total-amount").innerHTML = "$" + (ShoppingCartViewModel.CartTotal + Number(localStorage.shipping) + Number(localStorage.tax)).toFixed(2);
 
 document.getElementById("estimated-shipping").innerHTML = "$"+localStorage.shipping;
 document.getElementById("estimated-tax").innerHTML = "$"+localStorage.tax;
