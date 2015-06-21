@@ -53,7 +53,7 @@ namespace eStore.Controllers
             var serializer = new JavaScriptSerializer();
             var InvoiceJson = serializer.Serialize(invoice);
 
-            var ResponseMsg = Request.CreateResponse<string>(InvoiceJson);
+            var ResponseMsg = Request.CreateResponse<string>(HttpStatusCode.OK, InvoiceJson);
             return ResponseMsg;
         }
 

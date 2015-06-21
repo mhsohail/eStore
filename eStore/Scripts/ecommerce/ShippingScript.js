@@ -103,8 +103,10 @@ function doPlaceOrder() {
         xmlhttp1.onreadystatechange = function () {
             if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
                 if (xmlhttp1.responseText) { // the onreadystatechange executes multiple times, so this check is required
-                    console.log(xmlhttp0.responseText);
-                    //window.location = "/Payment/DPM/";
+                    var Invoice = JSON.parse(xmlhttp1.responseText);
+                    console.log(JSON.parse(Invoice));
+                    localStorage.setItem("Invoice", JSON.parse(xmlhttp1.responseText));
+                    window.location = "/Payment/invoice";
                 }
             }
         }

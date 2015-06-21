@@ -17,7 +17,7 @@ namespace eStore.Models
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
 
         public eStoreContext()
-            : base("name=EStoreContext", throwIfV1Schema: false)
+            : base("name=eStoreContext", throwIfV1Schema: false)
         {
         }
 

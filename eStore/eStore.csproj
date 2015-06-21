@@ -327,6 +327,7 @@
     <Content Include="Scripts\ecommerce\AccountLoginScript.js" />
     <Content Include="Scripts\ecommerce\BillingScript.js" />
     <Content Include="Scripts\ecommerce\CartIndexScript.js" />
+    <Content Include="Scripts\ecommerce\InvoiceScript.js" />
     <Content Include="Scripts\ecommerce\OrderStatusScript.js" />
     <Content Include="Scripts\ecommerce\RegisterScript.js" />
     <Content Include="Scripts\ecommerce\script.js" />

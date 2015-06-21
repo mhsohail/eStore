@@ -27,7 +27,7 @@ namespace eStore.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("name=EStoreContext", throwIfV1Schema: false)
+            : base("name=eStoreContext", throwIfV1Schema: false)
         {
         }
         

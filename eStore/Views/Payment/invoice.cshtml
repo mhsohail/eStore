@@ -1,7 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "invoice";
+    ViewBag.Title = "Invoice";
 }
 
-<h2>invoice</h2>
+<h2>@ViewBag.Title</h2>
 
+<style>
+    table {
+        border:1px solid gainsboro;
+    }
+
+    #invoice td {
+        border:1px solid gainsboro;
+        padding:5px;
+    }
+</style>
+<table>
+    <tbody id="invoice"></tbody>
+</table>
+
+<script src="~/Scripts/ecommerce/InvoiceScript.js"></script>
