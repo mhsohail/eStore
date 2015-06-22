@@ -50,6 +50,7 @@ function addToCart() {
     
     xmlhttp1.open("POST", window.ROOT + "/api/ShoppingCartApi?qty="+qty, true);
     xmlhttp1.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp1.setRequestHeader("Access-Control-Allow-Origin", "*");
     xmlhttp1.send(ShoppingCartViewModel);
     
     xmlhttp1.onreadystatechange = function () {
@@ -71,7 +72,6 @@ function addToCart() {
     getProductDetails();
     function getProductDetails(pid, refreshCart, cartItem) {
         var ProductId = ((typeof pid == "undefined") ? document.getElementById("ProductId").value : pid);
-        console.log("ProductDetails");
         var xmlhttp0;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp0 = new XMLHttpRequest();
@@ -88,7 +88,7 @@ function addToCart() {
             if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
                 if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
                     var product = JSON.parse(xmlhttp0.responseText);
-                
+                    
                     if (typeof pid != "undefined") {
                         PopulateShoppingCartView(product, refreshCart, cartItem);
                         return;
@@ -279,7 +279,10 @@ function addToCart() {
     }
     
     document.getElementById("facebook-icon").onclick = function () {
-        console.log("facebook share...");
+        if (typeof window.fbAsyncInit !== 'undefined') {
+            window.fbAsyncInit(); return;
+        }
+
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '396373413884119',

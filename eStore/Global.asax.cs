@@ -15,7 +15,7 @@ namespace eStore
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new eStoreDbInitializer());
+            //Database.SetInitializer(new eStoreDbInitializer());
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
