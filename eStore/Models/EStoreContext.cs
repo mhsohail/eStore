@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using eStore.Migrations;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -28,9 +29,8 @@ namespace eStore.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Database.SetInitializer<eStoreContext>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<eStoreContext, Configuration>());
             base.OnModelCreating(modelBuilder);
         }
-    
     }
 }
