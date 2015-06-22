@@ -130,7 +130,7 @@ function addToCart() {
             getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId, refreshCart, ShoppingCartViewModel.CartItems[i]);
         }
     }
-
+    
     var cartRefreshed = false;
     function PopulateShoppingCartView(Product, refreshCart, cartItem) {
         if (typeof Product != "undefined") {
