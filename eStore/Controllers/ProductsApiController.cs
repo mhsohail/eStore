@@ -29,7 +29,7 @@ namespace eStore.Controllers
         {
             Product product = null;
 
-            try
+            //try
             {
                 product = db.Products.Find(id);
                 if (product == null)
@@ -37,7 +37,7 @@ namespace eStore.Controllers
                     return NotFound();
                 }
             }
-            catch(Exception exc)
+            //catch(Exception exc)
             {
                 // exc
             }
