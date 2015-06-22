@@ -29,8 +29,8 @@ namespace eStore.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<eStoreContext, Configuration>());
-            Database.SetInitializer<eStoreContext>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<eStoreContext, Configuration>());
+            //Database.SetInitializer<eStoreContext>(null);
             base.OnModelCreating(modelBuilder);
         }
     }
