@@ -88,7 +88,7 @@ function addToCart() {
             if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
                 if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
                     var product = JSON.parse(xmlhttp0.responseText);
-                    
+                    console.log(product);
                     if (typeof pid != "undefined") {
                         PopulateShoppingCartView(product, refreshCart, cartItem);
                         return;
