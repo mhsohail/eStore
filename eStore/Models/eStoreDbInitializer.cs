@@ -48,27 +48,6 @@ namespace eStore.Models
 
                     db.SaveChanges();
 
-                    //====================
-                    // install following package for WebSecurity class
-                    // Install-Package WebMatrix.WebData
-                    /*WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-
-                    if (!Roles.RoleExists("Administrator"))
-                    {
-                        Roles.CreateRole("Administrator");
-                    }
-
-                    if (!WebSecurity.UserExists("sohailx2x@yahoo.com"))
-                    {
-                        WebSecurity.CreateUserAndAccount("sohailx2x@yahoo.com", "Kal07fag07nuf14-");
-                    }
-
-                    if (!Roles.GetRolesForUser("sohailx2x@yahoo.com").Contains("Administrator"))
-                    {
-                        Roles.AddUsersToRoles(new[] { "sohailx2x@yahoo.com" }, new[] { "Administrator" });
-                    }*/
-                    //====================
-
                     //this is for creating user
                     var userStore = new UserStore<ApplicationUser>(db);
                     var userManager = new UserManager<ApplicationUser>(userStore);
