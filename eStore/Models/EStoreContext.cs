@@ -28,7 +28,7 @@ namespace eStore.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(new eStoreDbInitializer());
+            //Database.SetInitializer(new eStoreDbInitializer());
             base.OnModelCreating(modelBuilder);
         }
     
