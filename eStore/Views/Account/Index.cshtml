@@ -1,0 +1,317 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My Profile</title>
+    <link href="/Content/ecommerce/profiles.css" rel="stylesheet" />
+
+    <link href="/Content/ecommerce/main.css" rel="stylesheet" />
+
+    <link href="/Content/ecommerce/headerStyle1.css" rel="stylesheet" />
+
+    <link href="/Content/ecommerce/footerStyle1.css" rel="stylesheet" />
+
+    <style type="text/css">
+		@@media only screen and (min-width: 481px) {
+			.col70-30Layout .button-danger {
+				margin-top: 50px;
+			}
+		}
+        @@media only screen and (max-width: 480px) {
+			.col70-30Layout .button-danger {
+				margin-top: 20px;
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="sellution-toolbar">
+        <div class="clearfix">
+            <img class="sellution-logo" src="/Images/app/header/Sellution-Logo.svg" alt="Sellution Logo" />
+            <ul class="toggle-view">
+                <li><a href="#" class="desktop"></a></li>
+                <li><a href="#" class="tablet"></a></li>
+                <li><a href="#" class="mobile"></a></li>
+            </ul>
+            <a href="/admin" class="view-admin">View Admin</a>
+            <a href="#" class="hide-toolbar" onclick="toggleSettings(event);">&times;</a>
+        </div>
+        <div>
+            <a href="#" class="toggle-toolbar" onclick="toggleSettings(event);"></a>
+            <span class="toggle-icon" onclick="toggleSettings(event);"></span>
+        </div>
+    </div>
+    <div class="body">
+        <header>
+            <div class="main">
+                <ul class="options">
+                    <li><a href="/cart" class="icon icon-cart cart"><span>02 items</span> <span>$290.00</span></a></li>
+                    <li><a href="#" class="icon icon-search">search</a></li>
+                </ul>
+                <ul class="account">
+                    <li><a href="/accountlogin" class="icon icon-account">Login</a></li>
+                    <li><a href="/register" class="icon icon-register">Register</a></li>
+                </ul>
+                <a href="#" class="icon icon-menu toggle-menu" onclick="toggleMenu(event);"></a>
+                <div class="clearfix"></div>
+            </div>
+            <hr>
+            <div class="search">
+                <input type="text" placeholder="Search" />
+            </div>
+            <div class="links">
+                <a href="/" class="logo">
+                    <img src="http://placehold.it/350x150" alt="Company">
+                </a>
+                <ul>
+                    <li><a href="#">guys</a></li>
+                    <li><a href="#">girls</a></li>
+                    <li><a href="#" class="dropdown">collections</a></li>
+                    <li><a href="#" class="dropdown">what's new</a></li>
+                    <li><a href="/blog">blog</a></li>
+                    <li><a href="#">contract</a></li>
+                </ul>
+            </div>
+            <ul class="mobile-menu">
+                <li><a href="#" class="icon icon-search">Search</a></li>
+                <li><a href="#" class="icon icon-account">My Account</a></li>
+                <li><a href="#" class="sub-menu">My Dashboard</a></li>
+                <li><a href="/profile/myaccount" class="sub-menu">My Account</a></li>
+                <li><a href="/Account/OrderStatus" class="sub-menu">Order Status</a></li>
+                <li><a href="/profile/shippingaddress" class="sub-menu">Address Book</a></li>
+                <li><a href="#" class="sub-menu">Payment Options</a></li>
+                <li><a href="#" class="sub-menu">Returns & Exchanges</a></li>
+                <li><a href="#" class="icon icon-cart cart">Cart</a></li>
+                <li><a href="#">guys</a></li>
+                <li><a href="#">girls</a></li>
+                <li><a href="#" class="dropdown">collections</a></li>
+                <li><a href="#" class="dropdown">what's new</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li><a href="#">contract</a></li>
+            </ul>
+        </header>
+
+        <script type="text/javascript">
+    function toggleSettings(event) {
+        event.preventDefault();
+        var toolbar = document.querySelector('.sellution-toolbar');
+        if (toolbar.classList.contains('open-toolbar')) {
+            toolbar.classList.remove('open-toolbar');
+        } else {
+            toolbar.classList.add('open-toolbar');
+        }
+    }
+    function toggleMenu(event) {
+        event.preventDefault();
+        var toolbar = document.querySelector('.body');
+        if (toolbar.classList.contains('open-menu')) {
+            toolbar.classList.remove('open-menu');
+        } else {
+            toolbar.classList.add('open-menu');
+        }
+    }
+        </script>
+
+        <div class="main" style="padding: 0;">
+            <div class="profile-sidebar">
+                <div class="sidebar-header">
+                    Profile
+                </div>
+                <div class="sidebar-group">
+
+                    <ul class="sidebar-group-menu">
+                        <li><a href="">Settings</a></li>
+                        <li><a href="">My Dash</a></li>
+                        <li><a href="/profile/myaccount">My Account</a></li>
+                        <li><a href="/Account/OrderStatus">Order Status</a></li>
+                        <li><a href="/profile/shippingaddress">Address Book</a></li>
+                        <li><a href="">Payment Options</a></li>
+                        <li><a href="">Returns & Exchanges</a></li>
+                        <li><a href="">Exchanges</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="main-content">
+                <div class="main-content-overlay"></div>
+                <div class="content-topbar">
+                    <a href="#" class="menu-icon">&#9776;</a>
+                    My Account
+                </div>
+                <div class="content-body">
+                    <div class="section-body">
+                        <div class="form">
+                            <div class="form-item" data-tip="This Field Is Required">
+                                <div class="form-title">Profile</div>
+                                <div class="img-upload">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img src="http://placehold.it/80x80" alt="Alternate Text" />
+                                            </td>
+                                            <td>
+                                                <button type="button" class="upload-button">Upload new picture</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-item" data-tip="This Field Is Required">
+                                <div class="form-title">Company Name</div>
+                                <input type="text" name="CompanyName" value="" class="field" required />
+                            </div>
+                            <div class="form-two-column">
+                                <div class="form-item">
+                                    <div class="form-title">First Name</div>
+                                    <input type="text" name="CompanyName" value="" class="field" required />
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-title">Last Name</div>
+                                    <input type="text" name="CompanyName" value="" class="field" required />
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-two-column">
+                                <div class="form-item" data-tip="This Field Is Required">
+                                    <div class="form-title">Email</div>
+                                    <input type="text" name="CompanyName" value="" class="field" required />
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-two-column">
+                                <div class="form-item" data-tip="This Field Is Required">
+                                    <div class="form-title">Password</div>
+                                    <input type="password" name="CompanyName" value="" class="field" required />
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="section-header">
+                            <span>mailing address(es)</span>
+                        </div>
+                        <div class="section-body">
+                            <div class="sectionLiquid">
+                                <div class="col70-30Layout">
+                                    <div class="box">
+                                        <div class="well">
+                                            <p>12345 Example Drive</p>
+                                            <p>Suite 1234</p>
+                                            <p>Los Angeles, CA 90210</p>
+                                            <p>United States</p>
+                                            <p>310-555-1212</p>
+                                        </div>
+                                    </div>
+                                    <div class="box text-center">
+                                        <a href="/profile/mailingaddress" class="button-danger">EDIT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="row3">
+                    <div class="col">
+                        <div>
+                            <h3 class="title">contact us</h3>
+                            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <ul class="contact">
+                                <li class="phone">+0067 898 7658</li>
+                                <li class="email"><a href="">booking@hungrytheme.net</a></li>
+                                <li class="address"><address>18, Stomach Ave.<br />Foodville, USA</address></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h3 class="title">new on the menu</h3>
+                            <div class="items">
+                                <div class="item">
+                                    <img src="http://cdn6.fedobe.com/wp-content/uploads/2013/08/19-fast-food-hacks-that-will-change-the-way-you-order.jpg">
+                                    <h3 class="item-name">angus steak burger</h3>
+                                    <p class="description">Lorem Ipsum is simply dummy</p>
+                                </div>
+                                <div class="item">
+                                    <img src="http://cdn6.fedobe.com/wp-content/uploads/2013/08/19-fast-food-hacks-that-will-change-the-way-you-order.jpg">
+                                    <h3 class="item-name">angus steak burger</h3>
+                                    <p class="description">Lorem Ipsum is simply dummy</p>
+                                </div>
+                                <div class="item">
+                                    <img src="http://cdn6.fedobe.com/wp-content/uploads/2013/08/19-fast-food-hacks-that-will-change-the-way-you-order.jpg">
+                                    <h3 class="item-name">angus steak burger</h3>
+                                    <p class="description">Lorem Ipsum is simply dummy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h3 class="title">opening times</h3>
+                            <ul class="schedule">
+                                <li>Monday<span>5pm - 11pm</span></li>
+                                <li>Tuesday<span>5pm - 11pm</span></li>
+                                <li>Wednesday<span class="closed">closed</span></li>
+                                <li>Thursday<span>5pm - 11pm</span></li>
+                                <li>Friday<span>5pm - Midnight</span></li>
+                                <li>Saturday<span>4:30pm - Midnight</span></li>
+                                <li>Sunday<span>5pm - 11pm</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function toggleMenu(event) {
+            event.preventDefault();
+            var toolbar = document.querySelector('.body');
+            if (toolbar.classList.contains('open-menu')) {
+                toolbar.classList.remove('open-menu');
+            } else {
+                toolbar.classList.add('open-menu');
+            }
+        }
+		window.onload = function (argument) {
+			var menuicon = document.querySelector('.menu-icon');
+			var mainContent = document.querySelector('.main-content');
+			var mainContentOverlay = document.querySelector('.main-content-overlay');
+			menuicon.onclick = function  () {
+				var isOpen = mainContent.classList.contains('open');
+				if (isOpen) mainContent.classList.remove('open');
+				else mainContent.classList.add('open');
+			}
+			mainContentOverlay.onclick = function () {
+				mainContent.classList.remove('open');
+			}
+		}
+		window.onresize = function (event) {
+		    if (window.innerWidth <= 800 && window.innerWidth > 480) {
+		        document.body.className = 'tablet';
+		    } else if (window.innerWidth <= 480) {
+		        document.body.className = 'mobile';
+		    } else {
+		        document.body.className = '';
+		    }
+		};
+    </script>
+
+</body>
+</html>

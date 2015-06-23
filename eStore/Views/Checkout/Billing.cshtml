@@ -1,0 +1,400 @@
+﻿
+@{
+    ViewBag.Title = "Billing";
+}
+
+<h2>Billing</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Ecommerce</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="/Content/ecommerce/main.css" rel="stylesheet" />
+
+    <link href="/Content/ecommerce/headerStyle1.css" rel="stylesheet" />
+
+    <link href="/Content/ecommerce/footerStyle1.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="sellution-toolbar">
+        <div class="clearfix">
+            <img class="sellution-logo" src="/Images/app/header/Sellution-Logo.svg" alt="Sellution Logo" />
+            <ul class="toggle-view">
+                <li><a href="#" class="desktop"></a></li>
+                <li><a href="#" class="tablet"></a></li>
+                <li><a href="#" class="mobile"></a></li>
+            </ul>
+            <a href="/admin" class="view-admin">View Admin</a>
+            <a href="#" class="hide-toolbar" onclick="toggleSettings(event);">&times;</a>
+        </div>
+        <div>
+            <a href="#" class="toggle-toolbar" onclick="toggleSettings(event);"></a>
+            <span class="toggle-icon" onclick="toggleSettings(event);"></span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <h3 class="title">shoping cart</h3>
+            <h5 class="title">(5 ITEMS)</h5>
+            <div class="divider"></div>
+            <button class="checkout btn-danger" onclick="javascript:window.location ='/cart'">check out</button>
+            <div class="divider"></div>
+            <div class="cart-items">
+                <div class="item">
+                    <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
+                    <div class="item-info">
+                        <div class="product-name">product name</div>
+                        <table>
+                            <tr>
+                                <td>Color:</td>
+                                <td>Blue</td>
+                            </tr>
+                            <tr>
+                                <td>Size:</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Qty:</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Price:</td>
+                                <td>$10.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="remove-item">remove</div>
+                </div>
+                <div class="item">
+                    <img src="http://www.smartdesk360.biz/Images/ecommerce/product3.jpg">
+                    <div class="item-info">
+                        <div class="product-name">product name</div>
+                        <table>
+                            <tr>
+                                <td>Color:</td>
+                                <td>Blue</td>
+                            </tr>
+                            <tr>
+                                <td>Size:</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Qty:</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Price:</td>
+                                <td>$10.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="remove-item">remove</div>
+                </div>
+            </div>
+            <div class="cart-total">subtotal: $20.00</div>
+            <button class="checkout btn-danger" onclick="javascript:window.location ='/cart'">check out</button>
+        </div>
+    </div>
+
+
+    <div class="body">
+        <div class="overlay"></div>
+
+        <header>
+            <div class="main">
+                <ul class="options">
+                    <li><a href="/cart" class="icon icon-cart cart"><span id="CartItemsCountTopBar">02 items</span> <span id="CartTotalTopBar">$290.00</span></a></li>
+                    <li><a href="#" class="icon icon-search">search</a></li>
+                </ul>
+                <ul class="account">
+                    <li><a href="/accountlogin" class="icon icon-account">Login</a></li>
+                    <li><a href="/register" class="icon icon-register">Register</a></li>
+                </ul>
+                <a href="#" class="icon icon-menu toggle-menu" onclick="toggleMenu(event);"></a>
+                <div class="clearfix"></div>
+            </div>
+            <hr>
+            <div class="search">
+                <input type="text" placeholder="Search" />
+            </div>
+            <div class="links">
+                <a href="/" class="logo">
+                    <img src="http://placehold.it/350x150" alt="Company">
+                </a>
+                <ul>
+                    <li><a href="#">guys</a></li>
+                    <li><a href="#">girls</a></li>
+                    <li><a href="#" class="dropdown">collections</a></li>
+                    <li><a href="#" class="dropdown">what's new</a></li>
+                    <li><a href="/blog">blog</a></li>
+                    <li><a href="#">contract</a></li>
+                </ul>
+            </div>
+            <ul class="mobile-menu">
+                <li><a href="#" class="icon icon-search">Search</a></li>
+                <li><a href="#" class="icon icon-account">My Account</a></li>
+                <li><a href="#" class="sub-menu">My Dashboard</a></li>
+                <li><a href="/profile/myaccount" class="sub-menu">My Account</a></li>
+                <li><a href="#" class="sub-menu">Order Status</a></li>
+                <li><a href="/profile/shippingaddress" class="sub-menu">Address Book</a></li>
+                <li><a href="#" class="sub-menu">Payment Options</a></li>
+                <li><a href="#" class="sub-menu">Returns & Exchanges</a></li>
+                <li><a href="#" class="icon icon-cart cart">Cart</a></li>
+                <li><a href="#">guys</a></li>
+                <li><a href="#">girls</a></li>
+                <li><a href="#" class="dropdown">collections</a></li>
+                <li><a href="#" class="dropdown">what's new</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li><a href="#">contract</a></li>
+            </ul>
+        </header>
+
+        <script type="text/javascript">
+    function toggleSettings(event) {
+        event.preventDefault();
+        var toolbar = document.querySelector('.sellution-toolbar');
+        if (toolbar.classList.contains('open-toolbar')) {
+            toolbar.classList.remove('open-toolbar');
+        } else {
+            toolbar.classList.add('open-toolbar');
+        }
+    }
+    function toggleMenu(event) {
+        event.preventDefault();
+        var toolbar = document.querySelector('.body');
+        if (toolbar.classList.contains('open-menu')) {
+            toolbar.classList.remove('open-menu');
+        } else {
+            toolbar.classList.add('open-menu');
+        }
+    }
+        </script>
+
+        <div class="main">
+
+
+
+            <h1 class="checkout-title">checkout</h1>
+            <h3 class="checkout-sub-title">2(items)</h3>
+
+            <div class="row7To3" style="margin-top: 30px;">
+                <div class="col">
+                    <div>
+                        <div class="order-summary">
+                            <h3 class="title">order summary</h3>
+
+                            <div class="orders" id="order-summary"></div>
+
+                            <div class="detail">
+                                <div class="label" id="item-subtotal">item subtotal (2)</div>
+                                <div class="value" id="item-subtotal-amount">$270.00</div>
+                            </div>
+                            <div class="detail">
+                                <div class="label">estimated shipping</div>
+                                <div class="value" id="estimated-shipping">$10.00</div>
+                            </div>
+                            <div class="detail">
+                                <div class="label">estimated tax</div>
+                                <div class="value" id="estimated-tax">$10.00</div>
+                                <div class="clearfix"></div>
+                                <p class="description">
+                                    Standard $10.00 Arrives 3 days
+                                </p>
+                            </div>
+                            <div class="detail">
+                                <div class="label">total</div>
+                                <div class="value" id="item-total-amount">$290.00</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+
+                        <div class="form-container bordered block-header">
+                            <div class="form-header">
+                                credit card
+                            </div>
+                            <div class="form">
+                                <div class="two-col">
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="Card Number" id="credit-card-number" value="4111111111111111" onchange="ValidateCreditCardNumber(this.value)" />
+                                    </div>
+                                    <div>
+                                        <div class="two-col">
+                                            <div class="form-control">
+                                                <input type="text" class="field" placeholder="MM | YY" id="credit-card-expdate" value="01|16" onchange="ValidateCCExpiry(this.value)" />
+                                            </div>
+                                            <div class="form-control">
+                                                <input type="text" class="field" placeholder="CVC" id="credit-card-cvc" value="123" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="two-col">
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="First Name" id="credit-card-firstname" />
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="Last Name" id="credit-card-lastname" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-container block-header">
+                            <div class="form-header">
+                                billing address
+                            </div>
+                            <div class="form">
+                                <div class="two-col">
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="First Name" id="billing-addr-firstname" />
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="Last Name" id="billing-addr-lastname" />
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" class="field" placeholder="Company" id="billing-addr-company" />
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" class="field" placeholder="Address" id="billing-addr-address" />
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" class="field" placeholder="Suite / Apt" id="billing-addr-apt" />
+                                </div>
+                                <div class="two-col">
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="City" id="billing-addr-city" />
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="text" class="field dropdown" placeholder="State" id="billing-addr-state" />
+                                    </div>
+                                </div>
+                                <div class="two-col">
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="Zip Code / Postal Code" id="billing-addr-zipcode" />
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="text" class="field dropdown" placeholder="Country" id="billing-addr-country" />
+                                    </div>
+                                </div>
+                                <div class="two-col">
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="Phone" id="billing-addr-phone" />
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="text" class="field" placeholder="Email" id="billing-addr-email" />
+                                    </div>
+                                </div>
+                                <button class="btn-link previous" onclick="javascript:window.location ='/cart'">back</button>
+                                <button class="btn-danger submit" onclick="doCheckoutShipping()">next</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="row3">
+                    <div class="col">
+                        <div>
+                            <h3 class="title">contact us</h3>
+                            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <ul class="contact">
+                                <li class="phone">+0067 898 7658</li>
+                                <li class="email"><a href="">booking@hungrytheme.net</a></li>
+                                <li class="address"><address>18, Stomach Ave.<br />Foodville, USA</address></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h3 class="title">new on the menu</h3>
+                            <div class="items">
+                                <div class="item">
+                                    <img src="http://cdn6.fedobe.com/wp-content/uploads/2013/08/19-fast-food-hacks-that-will-change-the-way-you-order.jpg">
+                                    <h3 class="item-name">angus steak burger</h3>
+                                    <p class="description">Lorem Ipsum is simply dummy</p>
+                                </div>
+                                <div class="item">
+                                    <img src="http://cdn6.fedobe.com/wp-content/uploads/2013/08/19-fast-food-hacks-that-will-change-the-way-you-order.jpg">
+                                    <h3 class="item-name">angus steak burger</h3>
+                                    <p class="description">Lorem Ipsum is simply dummy</p>
+                                </div>
+                                <div class="item">
+                                    <img src="http://cdn6.fedobe.com/wp-content/uploads/2013/08/19-fast-food-hacks-that-will-change-the-way-you-order.jpg">
+                                    <h3 class="item-name">angus steak burger</h3>
+                                    <p class="description">Lorem Ipsum is simply dummy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h3 class="title">opening times</h3>
+                            <ul class="schedule">
+                                <li>Monday<span>5pm - 11pm</span></li>
+                                <li>Tuesday<span>5pm - 11pm</span></li>
+                                <li>Wednesday<span class="closed">closed</span></li>
+                                <li>Thursday<span>5pm - 11pm</span></li>
+                                <li>Friday<span>5pm - Midnight</span></li>
+                                <li>Saturday<span>4:30pm - Midnight</span></li>
+                                <li>Sunday<span>5pm - 11pm</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+    <script type="text/javascript">
+    function toggleSettings(event) {
+        event.preventDefault();
+        var toolbar = document.querySelector('.sellution-toolbar');
+        if (toolbar.classList.contains('open-toolbar')) {
+            toolbar.classList.remove('open-toolbar');
+        } else {
+            toolbar.classList.add('open-toolbar');
+        }
+    }
+    function toggleMenu(event) {
+        event.preventDefault();
+        var toolbar = document.querySelector('.body');
+        if (toolbar.classList.contains('open-menu')) {
+            toolbar.classList.remove('open-menu');
+        } else {
+            toolbar.classList.add('open-menu');
+        }
+    }
+    window.onresize = function (event) {
+        if (window.innerWidth <= 800 && window.innerWidth > 480) {
+            document.body.className = 'tablet';
+        } else if (window.innerWidth <= 480) {
+            document.body.className = 'mobile';
+        } else {
+            document.body.className = '';
+        }
+    };
+    </script>
+
+    <script src="~/Scripts/ecommerce/BillingScript.js"></script>
+
+</body>
+</html>
