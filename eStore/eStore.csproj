@@ -241,7 +241,7 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductsApiController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ReceiptController.cs" />
+    <Compile Include="Controllers\ReceiptApiController.cs" />
     <Compile Include="Controllers\ShoppingCartApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

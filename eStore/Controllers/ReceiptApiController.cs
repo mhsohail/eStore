@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,31 +8,31 @@ using System.Web.Http;
 
 namespace eStore.Controllers
 {
-    public class ReceiptController : ApiController
+    public class ReceiptApiController : ApiController
     {
-        // GET: api/Receipt
+        // GET: api/ReceiptApi
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Receipt/5
+        // GET: api/ReceiptApi/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Receipt
-        public void Post([FromBody]string value)
+        // POST: api/ReceiptApi
+        public void Post(Receipt Receipt)
         {
         }
 
-        // PUT: api/Receipt/5
+        // PUT: api/ReceiptApi/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Receipt/5
+        // DELETE: api/ReceiptApi/5
         public void Delete(int id)
         {
         }
