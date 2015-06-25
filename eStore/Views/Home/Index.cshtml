@@ -31,3 +31,6 @@
         alert('Finally found ' + testObj.getAttribute('name') + ' after going up ' + count + ' level(s) through the DOM tree');
     }
 </script>
+
+@using Microsoft.AspNet.Identity;
+@System.Web.HttpContext.Current.User.Identity.GetUserId()

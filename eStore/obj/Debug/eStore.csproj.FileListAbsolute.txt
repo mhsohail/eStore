@@ -215,3 +215,4 @@ C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.WebData.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.Data.xml
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.WebData.xml
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\Microsoft.Web.Helpers.dll
+C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csprojResolveAssemblyReference.cache

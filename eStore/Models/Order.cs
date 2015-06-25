@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -64,6 +65,14 @@ namespace eStore.Models
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
+        public int ReceiptId { get; set; }
+
         public List<OrderDetail> OrderDetails { get; set; }
+
+        [ForeignKey("ReceiptId")]
+        public virtual Receipt Receipt { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }
