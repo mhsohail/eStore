@@ -11,7 +11,7 @@ document.getElementById("add-quantity").onclick = function() {
 
 document.getElementById("deduct-quantity").onclick = function() {
     if (!isValidAmount(document.getElementById("prodQty").value)) {
-        document.getElementById("prodQty").value = 1;
+        document.getElementById("prodQty").value = 0;
     }
 
     if (document.getElementById("prodQty").value == 1) {
@@ -88,7 +88,7 @@ function addToCart() {
             if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
                 if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
                     var product = JSON.parse(xmlhttp0.responseText);
-                    
+                    console.log(product);
                     if (typeof pid != "undefined") {
                         PopulateShoppingCartView(product, refreshCart, cartItem);
                         return;
@@ -125,11 +125,6 @@ function addToCart() {
         document.getElementById("CartCountSidebarBtn").innerHTML = ShoppingCartViewModel.CartItems.length + "<span></span>";
         document.getElementById("ShoppingCartCountSidebar").innerHTML = "(" + ShoppingCartViewModel.CartItems.length + " ITEMS)";
         document.getElementById("cart-total-sidebar").innerHTML = "subtotal: $" + ShoppingCartViewModel.CartTotal;
-        document.getElementById("CartItemsCountTopBar").innerHTML = ShoppingCartViewModel.CartItems.length + " items";
-        
-        if (ShoppingCartViewModel.CartItems.length > 0) {
-            document.getElementById("CartTotalTopBar").innerHTML = "$" + ShoppingCartViewModel.CartTotal;
-        }
 
         for (var i = 0; i < ShoppingCartViewModel.CartItems.length; i++) {
             getProductDetails(ShoppingCartViewModel.CartItems[i].ProductId, refreshCart, ShoppingCartViewModel.CartItems[i]);
@@ -351,66 +346,3 @@ function addToCart() {
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     };
-    
-
-// FavoriteList JS code
-    function addToFavoriteList() {
-
-        if (localStorage.FavoriteList) {
-
-        } else {
-            localStorage.setItem("FavoriteList", '{"FavoriteItems":[],"NewProduct":null}');
-        }
-
-        var FavoriteList = JSON.parse(localStorage.getItem("FavoriteList"));
-        FavoriteList.NewProduct = ProductGlobal;
-        localStorage.setItem("FavoriteList", JSON.stringify(FavoriteList));
-        
-        var xmlhttp;
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-        xmlhttp.open("POST", window.ROOT + "/api/FavoriteListApi", true);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.setRequestHeader("Accept", "application/json;charset=UTF-8");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xmlhttp.send(localStorage.getItem("FavoriteList"));
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (xmlhttp.responseText) { // the onreadystatechange executes multiple times, so this check is required
-
-                    localStorage.setItem("FavoriteList", xmlhttp.responseText);
-                    var FavoriteList = JSON.parse(xmlhttp.responseText);
-                    document.getElementById("like").innerHTML = FavoriteList.FavoriteItems.length + "<span></span>";
-
-                    /*
-                    var scvm = JSON.parse(xmlhttp.responseText);
-    
-                    if (scvm.NewProduct == null) {
-                        UpdateShoppingCart(xmlhttp.responseText, true);
-                        cartRefreshed = false;
-                    } else {
-                        UpdateShoppingCart(xmlhttp.responseText, false);
-                    }
-                    */
-                }
-            }
-        }
-
-    }
-
-    getFavoriteList();
-    function getFavoriteList() {
-        if (!localStorage.FavoriteList) {
-            localStorage.setItem("FavoriteList", '{"FavoriteItems":[],"NewProduct":null}');
-        }
-
-        var FavoriteList = JSON.parse(localStorage.getItem("FavoriteList"));
-        console.log(FavoriteList.FavoriteItems.length);
-        document.getElementById("like").innerHTML = FavoriteList.FavoriteItems.length + "<span></span>";
-    }

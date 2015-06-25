@@ -1,8 +1,6 @@
 namespace eStore.Migrations
 {
     using eStore.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -64,7 +62,7 @@ namespace eStore.Migrations
                 });
 
                 db.SaveChanges();
-                
+
                 //this is for creating user
                 var userStore = new UserStore<ApplicationUser>(db);
                 var userManager = new UserManager<ApplicationUser>(userStore);
