@@ -14,3 +14,4 @@ function isValidAmount(number) {
     }
     return true;
 }
+
