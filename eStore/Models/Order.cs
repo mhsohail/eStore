@@ -19,6 +19,7 @@ namespace eStore.Models
 
         [ScaffoldColumn(false)]
         public string Username { get; set; }
+        [MaxLength(450)]
         public string UserId { get; set; }
 
         [Required(ErrorMessage = "First Name is required")]
