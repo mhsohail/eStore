@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using Microsoft.AspNet.Identity;
 
 namespace eStore.Controllers
 {
@@ -15,6 +17,12 @@ namespace eStore.Controllers
         {
             ViewBag.Title = "Home Page";
 
+            var UserId = User.Identity.GetUserId();
+            var IsUserAuthenticated = User.Identity.IsAuthenticated;
+
+            //var UID = RequestContext.Principal.Identity.GetUserId();
+            //var IsUserAuthenticatedd = RequestContext.Principal.Identity.IsAuthenticated;
+            
             return View();
         }
     }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Collections.Generic;
 
 namespace eStore.Models
 {
@@ -15,6 +16,10 @@ namespace eStore.Models
         public string ScreenName { get; set; }
         public string Gender { get; set; }
         public bool ReceiveNewsLetter { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Receipt> Receipts { get; set; }
+        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

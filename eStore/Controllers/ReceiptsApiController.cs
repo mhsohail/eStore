@@ -8,8 +8,10 @@ using System.Web.Http;
 
 namespace eStore.Controllers
 {
-    public class ReceiptApiController : ApiController
+    public class ReceiptsApiController : ApiController
     {
+        eStoreContext db = new eStoreContext();
+
         // GET: api/ReceiptApi
         public IEnumerable<string> Get()
         {
@@ -17,14 +19,35 @@ namespace eStore.Controllers
         }
 
         // GET: api/ReceiptApi/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            Receipt Receipt = null;
+
+            //try
+            {
+                Receipt = db.Receipts.Find(id);
+                if (Receipt == null)
+                {
+                    return NotFound();
+                }
+            }
+            //catch(Exception exc)
+            {
+                // exc
+            }
+
+            return Ok(Receipt);
         }
 
         // POST: api/ReceiptApi
         public void Post(Receipt Receipt)
         {
+            try
+            {
+                db.Receipts.Add(Receipt);
+                db.SaveChanges();
+            }
+            catch(Exception exc) { }
         }
 
         // PUT: api/ReceiptApi/5

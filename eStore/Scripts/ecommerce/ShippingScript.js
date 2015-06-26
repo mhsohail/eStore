@@ -52,7 +52,9 @@ function doPlaceOrder() {
         PostalCode: "43600",
         Country: "Pakistan",
         Phone: "0303-5332033",
-        Email: sessionStorage.getItem("loggedin_username"),
+        Email: document.getElementById("UserEmail").value,
+        UserId: document.getElementById("UserId").value,
+        //Email: sessionStorage.getItem("loggedin_username"),
         Total: ShoppingCartVM.CartTotal
     };
     
@@ -75,13 +77,17 @@ function doPlaceOrder() {
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
     xmlhttp0.send(JSON.stringify(Order));
-
+    console.log("pay111");
     xmlhttp0.onreadystatechange = function () {
+        console.log("pay222");
         if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
+            console.log("pay333");
             if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
-                //alert(xmlhttp0.responseText);
+                console.log("pay444");
                 //window.location = "/Payment/DPM/";
-                ProcessPayment();
+                //ProcessPayment();
+                var Receipt = JSON.parse(xmlhttp0.responseText);
+                window.location = "/Receipt/Details/"+Receipt.OrderId;
             }
         }
     }

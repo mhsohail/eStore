@@ -1,5 +1,4 @@
-﻿using AuthorizeNet;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,50 +6,28 @@ using System.Web.Mvc;
 
 namespace eStore.Controllers
 {
-    public class PaymentController : Controller
+    public class ReceiptsController : Controller
     {
-        // GET: Payment
+        // GET: Receipt
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult DPM()
-        {
-            String ApiLogin = "2Vnc7H75By";
-            String TxnKey = "9KnE8M58n694B2qR";
-
-            String DPMFormOpen = DPMFormGenerator.OpenForm(ApiLogin, TxnKey, 10.25M, string.Empty, true);
-            String DPMFormEnd = DPMFormGenerator.EndForm();
-            ViewBag.DPMFormOpen = DPMFormOpen;
-            ViewBag.DPMFormEnd = DPMFormEnd;
-
-            return View();
-        }
-
-        public ActionResult ccinfo()
-        {
-            return View();
-        }
-
-        public ActionResult Receipt()
-        {
-            return View();
-        }
-
-        // GET: Pay/Details/5
+        // GET: Receipt/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.ReceiptId = id;
             return View();
         }
 
-        // GET: Pay/Create
+        // GET: Receipt/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pay/Create
+        // POST: Receipt/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -66,13 +43,13 @@ namespace eStore.Controllers
             }
         }
 
-        // GET: Pay/Edit/5
+        // GET: Receipt/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Pay/Edit/5
+        // POST: Receipt/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -88,13 +65,13 @@ namespace eStore.Controllers
             }
         }
 
-        // GET: Pay/Delete/5
+        // GET: Receipt/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Pay/Delete/5
+        // POST: Receipt/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

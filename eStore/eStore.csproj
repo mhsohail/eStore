@@ -236,12 +236,13 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrderApiController.cs" />
+    <Compile Include="Controllers\OrdersApiController.cs" />
     <Compile Include="Controllers\PaymentApiController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductsApiController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ReceiptApiController.cs" />
+    <Compile Include="Controllers\ReceiptsApiController.cs" />
+    <Compile Include="Controllers\ReceiptsController.cs" />
     <Compile Include="Controllers\ShoppingCartApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -331,7 +332,7 @@
     <Content Include="Scripts\ecommerce\AccountLoginScript.js" />
     <Content Include="Scripts\ecommerce\BillingScript.js" />
     <Content Include="Scripts\ecommerce\CartIndexScript.js" />
-    <Content Include="Scripts\ecommerce\InvoiceScript.js" />
+    <Content Include="Scripts\ecommerce\ReceiptScript.js" />
     <Content Include="Scripts\ecommerce\OrderStatusScript.js" />
     <Content Include="Scripts\ecommerce\RegisterScript.js" />
     <Content Include="Scripts\ecommerce\script.js" />
@@ -375,7 +376,8 @@
     <Content Include="Views\Account\OrderStatus.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Payment\ccinfo.cshtml" />
-    <Content Include="Views\Payment\invoice.cshtml" />
+    <Content Include="Views\Payment\Receipt.cshtml" />
+    <Content Include="Views\Receipts\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -65,13 +66,13 @@ namespace eStore.Models
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
-        public int ReceiptId { get; set; }
+        [JsonIgnore]
+        public virtual List<OrderDetail> OrderDetails { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
-
-        [ForeignKey("ReceiptId")]
+        [JsonIgnore]
         public virtual Receipt Receipt { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
     }

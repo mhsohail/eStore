@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Receipt Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<style>
+    table {
+        border: 1px solid gainsboro;
+    }
+
+    #receipt td {
+        border: 1px solid gainsboro;
+        padding: 5px;
+    }
+</style>
+<table>
+    <tbody id="receipt"></tbody>
+</table>
+
+@Html.Hidden("ReceiptId", (int)ViewBag.ReceiptId)
+
+<script src="~/Scripts/ecommerce/ReceiptScript.js"></script>

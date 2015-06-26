@@ -26,12 +26,18 @@ namespace eStore.Models
         public System.Data.Entity.DbSet<eStore.Models.Cart> Carts { get; set; }
         public System.Data.Entity.DbSet<eStore.Models.Order> Orders { get; set; }
         public System.Data.Entity.DbSet<eStore.Models.OrderDetail> OrderDetails { get; set; }
+        public System.Data.Entity.DbSet<eStore.Models.Receipt> Receipts { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<eStoreContext, Configuration>());
             //Database.SetInitializer<eStoreContext>(null);
             base.OnModelCreating(modelBuilder);
+
+            ///////1-1     Order---Receipt
+            modelBuilder.Entity<Order>()
+                        .HasOptional(o => o.Receipt)
+                        .WithRequired(r => r.Order);
         }
     }
 }

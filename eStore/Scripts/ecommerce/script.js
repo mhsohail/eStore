@@ -82,6 +82,7 @@ function addToCart() {
 
         xmlhttp0.open("GET", window.ROOT + "/api/ProductsApi/" + ProductId, true);
         xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp0.setRequestHeader("Access-Control-Allow-Origin", "*");
         xmlhttp0.send();
 
         xmlhttp0.onreadystatechange = function () {
