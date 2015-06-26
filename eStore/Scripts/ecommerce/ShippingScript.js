@@ -73,7 +73,7 @@ function doPlaceOrder() {
         xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xmlhttp0.open("POST", window.ROOT + "/api/OrderApi", true);
+    xmlhttp0.open("POST", window.ROOT + "/api/OrdersApi", true);
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
     xmlhttp0.send(JSON.stringify(Order));
@@ -87,7 +87,7 @@ function doPlaceOrder() {
                 //window.location = "/Payment/DPM/";
                 //ProcessPayment();
                 var Receipt = JSON.parse(xmlhttp0.responseText);
-                window.location = "/Receipt/Details/"+Receipt.OrderId;
+                window.location = "/Receipts/Details/"+Receipt.OrderId;
             }
         }
     }

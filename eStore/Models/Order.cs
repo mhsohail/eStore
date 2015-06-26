@@ -19,7 +19,8 @@ namespace eStore.Models
 
         [ScaffoldColumn(false)]
         public string Username { get; set; }
-        
+
+        [ForeignKey("ApplicationUser")]
         [MaxLength(40)]
         public string UserId { get; set; }
 

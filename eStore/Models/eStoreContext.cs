@@ -31,7 +31,9 @@ namespace eStore.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<eStoreContext, Configuration>());
+            //Database.SetInitializer(new eStoreDbInitializer());
             //Database.SetInitializer<eStoreContext>(null);
+            
             base.OnModelCreating(modelBuilder);
 
             ///////1-1     Order---Receipt

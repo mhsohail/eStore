@@ -47,8 +47,8 @@ namespace eStore.Controllers
 
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
                     string OrderSerialized = serializer.Serialize(Order);
-
-                    string serviceUrl = string.Format("http://localhost:4785/api/PaymentApi");
+                    
+                    string serviceUrl = string.Format(new Uri(Request.RequestUri, RequestContext.VirtualPathRoot) + "api/PaymentApi");
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serviceUrl);
                     request.Method = "POST";
                     request.ContentType = "application/json; charset=UTF-8";
