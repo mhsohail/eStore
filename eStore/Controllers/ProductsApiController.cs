@@ -10,7 +10,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using eStore.Models;
 using System.Web.Script.Serialization;
-using ValidateEmail.Models;
 using System.IO;
 using System.Web.Http.Cors;
 
