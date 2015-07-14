@@ -34,27 +34,3 @@
 
 @using Microsoft.AspNet.Identity;
 @System.Web.HttpContext.Current.User.Identity.GetUserId()
-
-<script>
-    var xmlhttp0;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp0 = new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-
-    xmlhttp0.open("GET", "http://localhost:42031/api/EmailStatus?email=sohailx2x@yahoo.com", true);
-    //xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
-    xmlhttp0.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xmlhttp0.send();
-
-    xmlhttp0.onreadystatechange = function () {
-        if (xmlhttp0.readyState == 4 && xmlhttp0.status == 200) {
-            if (xmlhttp0.responseText) { // the onreadystatechange executes multiple times, so this check is required
-                console.log(xmlhttp0.responseText);
-            }
-        }
-    }
-</script>
