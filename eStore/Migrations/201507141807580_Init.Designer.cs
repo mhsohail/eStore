@@ -7,13 +7,13 @@ namespace eStore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class newUserProfileFields : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newUserProfileFields));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506060840158_newUserProfileFields"; }
+            get { return "201507141807580_Init"; }
         }
         
         string IMigrationMetadata.Source

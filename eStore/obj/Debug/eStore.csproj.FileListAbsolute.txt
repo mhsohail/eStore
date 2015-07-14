@@ -136,12 +136,6 @@ C:\Users\pc\Documents\GitHub\eStore\eStore\eStore\obj\Debug\eStore.Migrations._2
 C:\Users\pc\Documents\GitHub\eStore\eStore\eStore\obj\Debug\eStore.csproj.GenerateResource.Cache
 C:\Users\pc\Documents\GitHub\eStore\eStore\eStore\obj\Debug\eStore.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\eStore\obj\Debug\eStore.pdb
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations._1.resources
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations._2.resources
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.newUserProfileFields.resources
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.GenderFieldAddedToUserProfile.resources
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.GenderFieldAddedToUserProfile_dataType_updated.resources
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csproj.GenerateResource.Cache
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\eStore.dll.config
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\eStore.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\eStore.pdb
@@ -208,11 +202,11 @@ C:\Users\pc\Documents\GitHub\eStore\eStore\bin\Microsoft.Owin.Security.Microsoft
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\System.Web.Http.Owin.xml
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.pdb
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations._3.resources
-C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.UserId.resources
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.Data.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.WebData.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.Data.xml
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\WebMatrix.WebData.xml
 C:\Users\pc\Documents\GitHub\eStore\eStore\bin\Microsoft.Web.Helpers.dll
 C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.Migrations.Init.resources
+C:\Users\pc\Documents\GitHub\eStore\eStore\obj\Debug\eStore.csproj.GenerateResource.Cache

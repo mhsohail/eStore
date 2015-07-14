@@ -248,33 +248,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505311317159_1.cs" />
-    <Compile Include="Migrations\201505311317159_1.Designer.cs">
-      <DependentUpon>201505311317159_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505311834295_2.cs" />
-    <Compile Include="Migrations\201505311834295_2.Designer.cs">
-      <DependentUpon>201505311834295_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506060840158_newUserProfileFields.cs" />
-    <Compile Include="Migrations\201506060840158_newUserProfileFields.Designer.cs">
-      <DependentUpon>201506060840158_newUserProfileFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506060859234_GenderFieldAddedToUserProfile.cs" />
-    <Compile Include="Migrations\201506060859234_GenderFieldAddedToUserProfile.Designer.cs">
-      <DependentUpon>201506060859234_GenderFieldAddedToUserProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506060905132_GenderFieldAddedToUserProfile_dataType_updated.cs" />
-    <Compile Include="Migrations\201506060905132_GenderFieldAddedToUserProfile_dataType_updated.Designer.cs">
-      <DependentUpon>201506060905132_GenderFieldAddedToUserProfile_dataType_updated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506070759302_3.cs" />
-    <Compile Include="Migrations\201506070759302_3.Designer.cs">
-      <DependentUpon>201506070759302_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506071444565_UserId.cs" />
-    <Compile Include="Migrations\201506071444565_UserId.Designer.cs">
-      <DependentUpon>201506071444565_UserId.cs</DependentUpon>
+    <Compile Include="Migrations\201507141807580_Init.cs" />
+    <Compile Include="Migrations\201507141807580_Init.Designer.cs">
+      <DependentUpon>201507141807580_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -394,26 +370,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505311317159_1.resx">
-      <DependentUpon>201505311317159_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505311834295_2.resx">
-      <DependentUpon>201505311834295_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506060840158_newUserProfileFields.resx">
-      <DependentUpon>201506060840158_newUserProfileFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506060859234_GenderFieldAddedToUserProfile.resx">
-      <DependentUpon>201506060859234_GenderFieldAddedToUserProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506060905132_GenderFieldAddedToUserProfile_dataType_updated.resx">
-      <DependentUpon>201506060905132_GenderFieldAddedToUserProfile_dataType_updated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506070759302_3.resx">
-      <DependentUpon>201506070759302_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506071444565_UserId.resx">
-      <DependentUpon>201506071444565_UserId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507141807580_Init.resx">
+      <DependentUpon>201507141807580_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
