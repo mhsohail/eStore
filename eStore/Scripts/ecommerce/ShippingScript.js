@@ -72,7 +72,7 @@ function doPlaceOrder() {
     else {// code for IE6, IE5
         xmlhttp0 = new ActiveXObject("Microsoft.XMLHTTP");
     }
-
+    
     xmlhttp0.open("POST", window.ROOT + "/api/OrdersApi", true);
     xmlhttp0.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp0.setRequestHeader("Accept", "application/json;charset=UTF-8");
