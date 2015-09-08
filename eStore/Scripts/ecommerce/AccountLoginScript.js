@@ -34,6 +34,10 @@
     Content-Type: application/x-www-form-urlencoded
     and send data in body in following format:
     grant_type=password&username=sohail@gmail.com&password=123456
+    
+    After getting response, send request to an Authorized action by sending following header:
+    Authorization: Bearer ACCESS_TOKEN
+    where ACCESS_TOKEN is the token accessed in first request above.
     */
     /*
     var loginData = {
