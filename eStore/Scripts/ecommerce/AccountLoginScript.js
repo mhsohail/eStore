@@ -29,7 +29,12 @@
     }).fail(function () {
 
     });
-    
+    /*
+    in case of unsupported_grant_type, set:
+    Content-Type: application/x-www-form-urlencoded
+    and send data in body in following format:
+    grant_type=password&username=sohail@gmail.com&password=123456
+    */
     /*
     var loginData = {
         grant_type: 'password',
